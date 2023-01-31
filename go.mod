@@ -1,4 +1,4 @@
-module PickupandGO
+module github.com/Kamden-Rasmussen/PickupandGO
 
 go 1.19
 
