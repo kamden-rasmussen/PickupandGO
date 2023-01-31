@@ -1,0 +1,1935 @@
+{
+    "meta": {
+        "count": 16,
+        "links": {
+            "self": "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=SGU&destinationLocationCode=SLC&departureDate=2023-02-13&returnDate=2023-02-27&adults=1&includedAirlineCodes=DL&currencyCode=USD"
+        }
+    },
+    "data": [
+        {
+            "type": "flight-offer",
+            "id": "1",
+            "source": "GDS",
+            "instantTicketingRequired": false,
+            "nonHomogeneous": false,
+            "oneWay": false,
+            "lastTicketingDate": "2023-02-01",
+            "numberOfBookableSeats": 3,
+            "itineraries": [
+                {
+                    "duration": "PT1H12M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "SGU",
+                                "at": "2023-02-13T15:25:00"
+                            },
+                            "arrival": {
+                                "iataCode": "SLC",
+                                "at": "2023-02-13T16:37:00"
+                            },
+                            "carrierCode": "DL",
+                            "number": "4318",
+                            "aircraft": {
+                                "code": "CRJ"
+                            },
+                            "duration": "PT1H12M",
+                            "id": "1",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                },
+                {
+                    "duration": "PT1H15M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "SLC",
+                                "at": "2023-02-27T13:40:00"
+                            },
+                            "arrival": {
+                                "iataCode": "SGU",
+                                "at": "2023-02-27T14:55:00"
+                            },
+                            "carrierCode": "DL",
+                            "number": "4318",
+                            "aircraft": {
+                                "code": "CRJ"
+                            },
+                            "duration": "PT1H15M",
+                            "id": "5",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                }
+            ],
+            "price": {
+                "currency": "USD",
+                "total": "338.21",
+                "base": "295.81",
+                "fees": [
+                    {
+                        "amount": "0.00",
+                        "type": "SUPPLIER"
+                    },
+                    {
+                        "amount": "0.00",
+                        "type": "TICKETING"
+                    }
+                ],
+                "grandTotal": "338.21"
+            },
+            "pricingOptions": {
+                "fareType": [
+                    "PUBLISHED"
+                ],
+                "includedCheckedBagsOnly": false
+            },
+            "validatingAirlineCodes": [
+                "DL"
+            ],
+            "travelerPricings": [
+                {
+                    "travelerId": "1",
+                    "fareOption": "STANDARD",
+                    "travelerType": "ADULT",
+                    "price": {
+                        "currency": "USD",
+                        "total": "338.21",
+                        "base": "295.81"
+                    },
+                    "fareDetailsBySegment": [
+                        {
+                            "segmentId": "1",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "LE0NBVO",
+                            "brandedFare": "MAINCABIN",
+                            "class": "L",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            }
+                        },
+                        {
+                            "segmentId": "5",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "LE0NBVO",
+                            "brandedFare": "MAINCABIN",
+                            "class": "L",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "flight-offer",
+            "id": "2",
+            "source": "GDS",
+            "instantTicketingRequired": false,
+            "nonHomogeneous": false,
+            "oneWay": false,
+            "lastTicketingDate": "2023-02-01",
+            "numberOfBookableSeats": 3,
+            "itineraries": [
+                {
+                    "duration": "PT1H12M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "SGU",
+                                "at": "2023-02-13T15:25:00"
+                            },
+                            "arrival": {
+                                "iataCode": "SLC",
+                                "at": "2023-02-13T16:37:00"
+                            },
+                            "carrierCode": "DL",
+                            "number": "4318",
+                            "aircraft": {
+                                "code": "CRJ"
+                            },
+                            "duration": "PT1H12M",
+                            "id": "1",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                },
+                {
+                    "duration": "PT1H16M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "SLC",
+                                "at": "2023-02-27T17:45:00"
+                            },
+                            "arrival": {
+                                "iataCode": "SGU",
+                                "at": "2023-02-27T19:01:00"
+                            },
+                            "carrierCode": "DL",
+                            "number": "4282",
+                            "aircraft": {
+                                "code": "CRJ"
+                            },
+                            "duration": "PT1H16M",
+                            "id": "6",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                }
+            ],
+            "price": {
+                "currency": "USD",
+                "total": "338.21",
+                "base": "295.81",
+                "fees": [
+                    {
+                        "amount": "0.00",
+                        "type": "SUPPLIER"
+                    },
+                    {
+                        "amount": "0.00",
+                        "type": "TICKETING"
+                    }
+                ],
+                "grandTotal": "338.21"
+            },
+            "pricingOptions": {
+                "fareType": [
+                    "PUBLISHED"
+                ],
+                "includedCheckedBagsOnly": false
+            },
+            "validatingAirlineCodes": [
+                "DL"
+            ],
+            "travelerPricings": [
+                {
+                    "travelerId": "1",
+                    "fareOption": "STANDARD",
+                    "travelerType": "ADULT",
+                    "price": {
+                        "currency": "USD",
+                        "total": "338.21",
+                        "base": "295.81"
+                    },
+                    "fareDetailsBySegment": [
+                        {
+                            "segmentId": "1",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "LE0NBVO",
+                            "brandedFare": "MAINCABIN",
+                            "class": "L",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            }
+                        },
+                        {
+                            "segmentId": "6",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "LE0NBVO",
+                            "brandedFare": "MAINCABIN",
+                            "class": "L",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "flight-offer",
+            "id": "3",
+            "source": "GDS",
+            "instantTicketingRequired": false,
+            "nonHomogeneous": false,
+            "oneWay": false,
+            "lastTicketingDate": "2023-02-01",
+            "numberOfBookableSeats": 3,
+            "itineraries": [
+                {
+                    "duration": "PT1H14M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "SGU",
+                                "at": "2023-02-13T06:15:00"
+                            },
+                            "arrival": {
+                                "iataCode": "SLC",
+                                "at": "2023-02-13T07:29:00"
+                            },
+                            "carrierCode": "DL",
+                            "number": "4235",
+                            "aircraft": {
+                                "code": "CRJ"
+                            },
+                            "duration": "PT1H14M",
+                            "id": "2",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                },
+                {
+                    "duration": "PT1H15M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "SLC",
+                                "at": "2023-02-27T13:40:00"
+                            },
+                            "arrival": {
+                                "iataCode": "SGU",
+                                "at": "2023-02-27T14:55:00"
+                            },
+                            "carrierCode": "DL",
+                            "number": "4318",
+                            "aircraft": {
+                                "code": "CRJ"
+                            },
+                            "duration": "PT1H15M",
+                            "id": "5",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                }
+            ],
+            "price": {
+                "currency": "USD",
+                "total": "338.21",
+                "base": "295.81",
+                "fees": [
+                    {
+                        "amount": "0.00",
+                        "type": "SUPPLIER"
+                    },
+                    {
+                        "amount": "0.00",
+                        "type": "TICKETING"
+                    }
+                ],
+                "grandTotal": "338.21"
+            },
+            "pricingOptions": {
+                "fareType": [
+                    "PUBLISHED"
+                ],
+                "includedCheckedBagsOnly": false
+            },
+            "validatingAirlineCodes": [
+                "DL"
+            ],
+            "travelerPricings": [
+                {
+                    "travelerId": "1",
+                    "fareOption": "STANDARD",
+                    "travelerType": "ADULT",
+                    "price": {
+                        "currency": "USD",
+                        "total": "338.21",
+                        "base": "295.81"
+                    },
+                    "fareDetailsBySegment": [
+                        {
+                            "segmentId": "2",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "LE0NBVO",
+                            "brandedFare": "MAINCABIN",
+                            "class": "L",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            }
+                        },
+                        {
+                            "segmentId": "5",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "LE0NBVO",
+                            "brandedFare": "MAINCABIN",
+                            "class": "L",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "flight-offer",
+            "id": "4",
+            "source": "GDS",
+            "instantTicketingRequired": false,
+            "nonHomogeneous": false,
+            "oneWay": false,
+            "lastTicketingDate": "2023-02-01",
+            "numberOfBookableSeats": 3,
+            "itineraries": [
+                {
+                    "duration": "PT1H14M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "SGU",
+                                "at": "2023-02-13T11:27:00"
+                            },
+                            "arrival": {
+                                "iataCode": "SLC",
+                                "at": "2023-02-13T12:41:00"
+                            },
+                            "carrierCode": "DL",
+                            "number": "4337",
+                            "aircraft": {
+                                "code": "CRJ"
+                            },
+                            "duration": "PT1H14M",
+                            "id": "3",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                },
+                {
+                    "duration": "PT1H15M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "SLC",
+                                "at": "2023-02-27T13:40:00"
+                            },
+                            "arrival": {
+                                "iataCode": "SGU",
+                                "at": "2023-02-27T14:55:00"
+                            },
+                            "carrierCode": "DL",
+                            "number": "4318",
+                            "aircraft": {
+                                "code": "CRJ"
+                            },
+                            "duration": "PT1H15M",
+                            "id": "5",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                }
+            ],
+            "price": {
+                "currency": "USD",
+                "total": "338.21",
+                "base": "295.81",
+                "fees": [
+                    {
+                        "amount": "0.00",
+                        "type": "SUPPLIER"
+                    },
+                    {
+                        "amount": "0.00",
+                        "type": "TICKETING"
+                    }
+                ],
+                "grandTotal": "338.21"
+            },
+            "pricingOptions": {
+                "fareType": [
+                    "PUBLISHED"
+                ],
+                "includedCheckedBagsOnly": false
+            },
+            "validatingAirlineCodes": [
+                "DL"
+            ],
+            "travelerPricings": [
+                {
+                    "travelerId": "1",
+                    "fareOption": "STANDARD",
+                    "travelerType": "ADULT",
+                    "price": {
+                        "currency": "USD",
+                        "total": "338.21",
+                        "base": "295.81"
+                    },
+                    "fareDetailsBySegment": [
+                        {
+                            "segmentId": "3",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "LE0NBVO",
+                            "brandedFare": "MAINCABIN",
+                            "class": "L",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            }
+                        },
+                        {
+                            "segmentId": "5",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "LE0NBVO",
+                            "brandedFare": "MAINCABIN",
+                            "class": "L",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "flight-offer",
+            "id": "5",
+            "source": "GDS",
+            "instantTicketingRequired": false,
+            "nonHomogeneous": false,
+            "oneWay": false,
+            "lastTicketingDate": "2023-02-01",
+            "numberOfBookableSeats": 3,
+            "itineraries": [
+                {
+                    "duration": "PT1H14M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "SGU",
+                                "at": "2023-02-13T06:15:00"
+                            },
+                            "arrival": {
+                                "iataCode": "SLC",
+                                "at": "2023-02-13T07:29:00"
+                            },
+                            "carrierCode": "DL",
+                            "number": "4235",
+                            "aircraft": {
+                                "code": "CRJ"
+                            },
+                            "duration": "PT1H14M",
+                            "id": "2",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                },
+                {
+                    "duration": "PT1H16M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "SLC",
+                                "at": "2023-02-27T17:45:00"
+                            },
+                            "arrival": {
+                                "iataCode": "SGU",
+                                "at": "2023-02-27T19:01:00"
+                            },
+                            "carrierCode": "DL",
+                            "number": "4282",
+                            "aircraft": {
+                                "code": "CRJ"
+                            },
+                            "duration": "PT1H16M",
+                            "id": "6",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                }
+            ],
+            "price": {
+                "currency": "USD",
+                "total": "338.21",
+                "base": "295.81",
+                "fees": [
+                    {
+                        "amount": "0.00",
+                        "type": "SUPPLIER"
+                    },
+                    {
+                        "amount": "0.00",
+                        "type": "TICKETING"
+                    }
+                ],
+                "grandTotal": "338.21"
+            },
+            "pricingOptions": {
+                "fareType": [
+                    "PUBLISHED"
+                ],
+                "includedCheckedBagsOnly": false
+            },
+            "validatingAirlineCodes": [
+                "DL"
+            ],
+            "travelerPricings": [
+                {
+                    "travelerId": "1",
+                    "fareOption": "STANDARD",
+                    "travelerType": "ADULT",
+                    "price": {
+                        "currency": "USD",
+                        "total": "338.21",
+                        "base": "295.81"
+                    },
+                    "fareDetailsBySegment": [
+                        {
+                            "segmentId": "2",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "LE0NBVO",
+                            "brandedFare": "MAINCABIN",
+                            "class": "L",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            }
+                        },
+                        {
+                            "segmentId": "6",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "LE0NBVO",
+                            "brandedFare": "MAINCABIN",
+                            "class": "L",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "flight-offer",
+            "id": "6",
+            "source": "GDS",
+            "instantTicketingRequired": false,
+            "nonHomogeneous": false,
+            "oneWay": false,
+            "lastTicketingDate": "2023-02-01",
+            "numberOfBookableSeats": 3,
+            "itineraries": [
+                {
+                    "duration": "PT1H14M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "SGU",
+                                "at": "2023-02-13T11:27:00"
+                            },
+                            "arrival": {
+                                "iataCode": "SLC",
+                                "at": "2023-02-13T12:41:00"
+                            },
+                            "carrierCode": "DL",
+                            "number": "4337",
+                            "aircraft": {
+                                "code": "CRJ"
+                            },
+                            "duration": "PT1H14M",
+                            "id": "3",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                },
+                {
+                    "duration": "PT1H16M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "SLC",
+                                "at": "2023-02-27T17:45:00"
+                            },
+                            "arrival": {
+                                "iataCode": "SGU",
+                                "at": "2023-02-27T19:01:00"
+                            },
+                            "carrierCode": "DL",
+                            "number": "4282",
+                            "aircraft": {
+                                "code": "CRJ"
+                            },
+                            "duration": "PT1H16M",
+                            "id": "6",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                }
+            ],
+            "price": {
+                "currency": "USD",
+                "total": "338.21",
+                "base": "295.81",
+                "fees": [
+                    {
+                        "amount": "0.00",
+                        "type": "SUPPLIER"
+                    },
+                    {
+                        "amount": "0.00",
+                        "type": "TICKETING"
+                    }
+                ],
+                "grandTotal": "338.21"
+            },
+            "pricingOptions": {
+                "fareType": [
+                    "PUBLISHED"
+                ],
+                "includedCheckedBagsOnly": false
+            },
+            "validatingAirlineCodes": [
+                "DL"
+            ],
+            "travelerPricings": [
+                {
+                    "travelerId": "1",
+                    "fareOption": "STANDARD",
+                    "travelerType": "ADULT",
+                    "price": {
+                        "currency": "USD",
+                        "total": "338.21",
+                        "base": "295.81"
+                    },
+                    "fareDetailsBySegment": [
+                        {
+                            "segmentId": "3",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "LE0NBVO",
+                            "brandedFare": "MAINCABIN",
+                            "class": "L",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            }
+                        },
+                        {
+                            "segmentId": "6",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "LE0NBVO",
+                            "brandedFare": "MAINCABIN",
+                            "class": "L",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "flight-offer",
+            "id": "7",
+            "source": "GDS",
+            "instantTicketingRequired": false,
+            "nonHomogeneous": false,
+            "oneWay": false,
+            "lastTicketingDate": "2023-02-01",
+            "numberOfBookableSeats": 3,
+            "itineraries": [
+                {
+                    "duration": "PT1H12M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "SGU",
+                                "at": "2023-02-13T15:25:00"
+                            },
+                            "arrival": {
+                                "iataCode": "SLC",
+                                "at": "2023-02-13T16:37:00"
+                            },
+                            "carrierCode": "DL",
+                            "number": "4318",
+                            "aircraft": {
+                                "code": "CRJ"
+                            },
+                            "duration": "PT1H12M",
+                            "id": "1",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                },
+                {
+                    "duration": "PT1H20M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "SLC",
+                                "at": "2023-02-27T09:27:00"
+                            },
+                            "arrival": {
+                                "iataCode": "SGU",
+                                "at": "2023-02-27T10:47:00"
+                            },
+                            "carrierCode": "DL",
+                            "number": "4337",
+                            "aircraft": {
+                                "code": "CRJ"
+                            },
+                            "duration": "PT1H20M",
+                            "id": "7",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                }
+            ],
+            "price": {
+                "currency": "USD",
+                "total": "338.21",
+                "base": "295.81",
+                "fees": [
+                    {
+                        "amount": "0.00",
+                        "type": "SUPPLIER"
+                    },
+                    {
+                        "amount": "0.00",
+                        "type": "TICKETING"
+                    }
+                ],
+                "grandTotal": "338.21"
+            },
+            "pricingOptions": {
+                "fareType": [
+                    "PUBLISHED"
+                ],
+                "includedCheckedBagsOnly": false
+            },
+            "validatingAirlineCodes": [
+                "DL"
+            ],
+            "travelerPricings": [
+                {
+                    "travelerId": "1",
+                    "fareOption": "STANDARD",
+                    "travelerType": "ADULT",
+                    "price": {
+                        "currency": "USD",
+                        "total": "338.21",
+                        "base": "295.81"
+                    },
+                    "fareDetailsBySegment": [
+                        {
+                            "segmentId": "1",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "LE0NBVO",
+                            "brandedFare": "MAINCABIN",
+                            "class": "L",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            }
+                        },
+                        {
+                            "segmentId": "7",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "LE0NBVO",
+                            "brandedFare": "MAINCABIN",
+                            "class": "L",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "flight-offer",
+            "id": "8",
+            "source": "GDS",
+            "instantTicketingRequired": false,
+            "nonHomogeneous": false,
+            "oneWay": false,
+            "lastTicketingDate": "2023-02-01",
+            "numberOfBookableSeats": 3,
+            "itineraries": [
+                {
+                    "duration": "PT1H12M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "SGU",
+                                "at": "2023-02-13T15:25:00"
+                            },
+                            "arrival": {
+                                "iataCode": "SLC",
+                                "at": "2023-02-13T16:37:00"
+                            },
+                            "carrierCode": "DL",
+                            "number": "4318",
+                            "aircraft": {
+                                "code": "CRJ"
+                            },
+                            "duration": "PT1H12M",
+                            "id": "1",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                },
+                {
+                    "duration": "PT1H20M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "SLC",
+                                "at": "2023-02-27T22:45:00"
+                            },
+                            "arrival": {
+                                "iataCode": "SGU",
+                                "at": "2023-02-28T00:05:00"
+                            },
+                            "carrierCode": "DL",
+                            "number": "4316",
+                            "aircraft": {
+                                "code": "CRJ"
+                            },
+                            "duration": "PT1H20M",
+                            "id": "8",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                }
+            ],
+            "price": {
+                "currency": "USD",
+                "total": "338.21",
+                "base": "295.81",
+                "fees": [
+                    {
+                        "amount": "0.00",
+                        "type": "SUPPLIER"
+                    },
+                    {
+                        "amount": "0.00",
+                        "type": "TICKETING"
+                    }
+                ],
+                "grandTotal": "338.21"
+            },
+            "pricingOptions": {
+                "fareType": [
+                    "PUBLISHED"
+                ],
+                "includedCheckedBagsOnly": false
+            },
+            "validatingAirlineCodes": [
+                "DL"
+            ],
+            "travelerPricings": [
+                {
+                    "travelerId": "1",
+                    "fareOption": "STANDARD",
+                    "travelerType": "ADULT",
+                    "price": {
+                        "currency": "USD",
+                        "total": "338.21",
+                        "base": "295.81"
+                    },
+                    "fareDetailsBySegment": [
+                        {
+                            "segmentId": "1",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "LE0NBVO",
+                            "brandedFare": "MAINCABIN",
+                            "class": "L",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            }
+                        },
+                        {
+                            "segmentId": "8",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "LE0NBVO",
+                            "brandedFare": "MAINCABIN",
+                            "class": "L",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "flight-offer",
+            "id": "9",
+            "source": "GDS",
+            "instantTicketingRequired": false,
+            "nonHomogeneous": false,
+            "oneWay": false,
+            "lastTicketingDate": "2023-02-01",
+            "numberOfBookableSeats": 3,
+            "itineraries": [
+                {
+                    "duration": "PT1H17M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "SGU",
+                                "at": "2023-02-13T19:55:00"
+                            },
+                            "arrival": {
+                                "iataCode": "SLC",
+                                "at": "2023-02-13T21:12:00"
+                            },
+                            "carrierCode": "DL",
+                            "number": "4282",
+                            "aircraft": {
+                                "code": "CRJ"
+                            },
+                            "duration": "PT1H17M",
+                            "id": "4",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                },
+                {
+                    "duration": "PT1H15M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "SLC",
+                                "at": "2023-02-27T13:40:00"
+                            },
+                            "arrival": {
+                                "iataCode": "SGU",
+                                "at": "2023-02-27T14:55:00"
+                            },
+                            "carrierCode": "DL",
+                            "number": "4318",
+                            "aircraft": {
+                                "code": "CRJ"
+                            },
+                            "duration": "PT1H15M",
+                            "id": "5",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                }
+            ],
+            "price": {
+                "currency": "USD",
+                "total": "338.21",
+                "base": "295.81",
+                "fees": [
+                    {
+                        "amount": "0.00",
+                        "type": "SUPPLIER"
+                    },
+                    {
+                        "amount": "0.00",
+                        "type": "TICKETING"
+                    }
+                ],
+                "grandTotal": "338.21"
+            },
+            "pricingOptions": {
+                "fareType": [
+                    "PUBLISHED"
+                ],
+                "includedCheckedBagsOnly": false
+            },
+            "validatingAirlineCodes": [
+                "DL"
+            ],
+            "travelerPricings": [
+                {
+                    "travelerId": "1",
+                    "fareOption": "STANDARD",
+                    "travelerType": "ADULT",
+                    "price": {
+                        "currency": "USD",
+                        "total": "338.21",
+                        "base": "295.81"
+                    },
+                    "fareDetailsBySegment": [
+                        {
+                            "segmentId": "4",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "LE0NBVO",
+                            "brandedFare": "MAINCABIN",
+                            "class": "L",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            }
+                        },
+                        {
+                            "segmentId": "5",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "LE0NBVO",
+                            "brandedFare": "MAINCABIN",
+                            "class": "L",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "flight-offer",
+            "id": "10",
+            "source": "GDS",
+            "instantTicketingRequired": false,
+            "nonHomogeneous": false,
+            "oneWay": false,
+            "lastTicketingDate": "2023-02-01",
+            "numberOfBookableSeats": 3,
+            "itineraries": [
+                {
+                    "duration": "PT1H17M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "SGU",
+                                "at": "2023-02-13T19:55:00"
+                            },
+                            "arrival": {
+                                "iataCode": "SLC",
+                                "at": "2023-02-13T21:12:00"
+                            },
+                            "carrierCode": "DL",
+                            "number": "4282",
+                            "aircraft": {
+                                "code": "CRJ"
+                            },
+                            "duration": "PT1H17M",
+                            "id": "4",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                },
+                {
+                    "duration": "PT1H16M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "SLC",
+                                "at": "2023-02-27T17:45:00"
+                            },
+                            "arrival": {
+                                "iataCode": "SGU",
+                                "at": "2023-02-27T19:01:00"
+                            },
+                            "carrierCode": "DL",
+                            "number": "4282",
+                            "aircraft": {
+                                "code": "CRJ"
+                            },
+                            "duration": "PT1H16M",
+                            "id": "6",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                }
+            ],
+            "price": {
+                "currency": "USD",
+                "total": "338.21",
+                "base": "295.81",
+                "fees": [
+                    {
+                        "amount": "0.00",
+                        "type": "SUPPLIER"
+                    },
+                    {
+                        "amount": "0.00",
+                        "type": "TICKETING"
+                    }
+                ],
+                "grandTotal": "338.21"
+            },
+            "pricingOptions": {
+                "fareType": [
+                    "PUBLISHED"
+                ],
+                "includedCheckedBagsOnly": false
+            },
+            "validatingAirlineCodes": [
+                "DL"
+            ],
+            "travelerPricings": [
+                {
+                    "travelerId": "1",
+                    "fareOption": "STANDARD",
+                    "travelerType": "ADULT",
+                    "price": {
+                        "currency": "USD",
+                        "total": "338.21",
+                        "base": "295.81"
+                    },
+                    "fareDetailsBySegment": [
+                        {
+                            "segmentId": "4",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "LE0NBVO",
+                            "brandedFare": "MAINCABIN",
+                            "class": "L",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            }
+                        },
+                        {
+                            "segmentId": "6",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "LE0NBVO",
+                            "brandedFare": "MAINCABIN",
+                            "class": "L",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "flight-offer",
+            "id": "11",
+            "source": "GDS",
+            "instantTicketingRequired": false,
+            "nonHomogeneous": false,
+            "oneWay": false,
+            "lastTicketingDate": "2023-02-01",
+            "numberOfBookableSeats": 3,
+            "itineraries": [
+                {
+                    "duration": "PT1H14M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "SGU",
+                                "at": "2023-02-13T06:15:00"
+                            },
+                            "arrival": {
+                                "iataCode": "SLC",
+                                "at": "2023-02-13T07:29:00"
+                            },
+                            "carrierCode": "DL",
+                            "number": "4235",
+                            "aircraft": {
+                                "code": "CRJ"
+                            },
+                            "duration": "PT1H14M",
+                            "id": "2",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                },
+                {
+                    "duration": "PT1H20M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "SLC",
+                                "at": "2023-02-27T09:27:00"
+                            },
+                            "arrival": {
+                                "iataCode": "SGU",
+                                "at": "2023-02-27T10:47:00"
+                            },
+                            "carrierCode": "DL",
+                            "number": "4337",
+                            "aircraft": {
+                                "code": "CRJ"
+                            },
+                            "duration": "PT1H20M",
+                            "id": "7",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                }
+            ],
+            "price": {
+                "currency": "USD",
+                "total": "338.21",
+                "base": "295.81",
+                "fees": [
+                    {
+                        "amount": "0.00",
+                        "type": "SUPPLIER"
+                    },
+                    {
+                        "amount": "0.00",
+                        "type": "TICKETING"
+                    }
+                ],
+                "grandTotal": "338.21"
+            },
+            "pricingOptions": {
+                "fareType": [
+                    "PUBLISHED"
+                ],
+                "includedCheckedBagsOnly": false
+            },
+            "validatingAirlineCodes": [
+                "DL"
+            ],
+            "travelerPricings": [
+                {
+                    "travelerId": "1",
+                    "fareOption": "STANDARD",
+                    "travelerType": "ADULT",
+                    "price": {
+                        "currency": "USD",
+                        "total": "338.21",
+                        "base": "295.81"
+                    },
+                    "fareDetailsBySegment": [
+                        {
+                            "segmentId": "2",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "LE0NBVO",
+                            "brandedFare": "MAINCABIN",
+                            "class": "L",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            }
+                        },
+                        {
+                            "segmentId": "7",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "LE0NBVO",
+                            "brandedFare": "MAINCABIN",
+                            "class": "L",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "flight-offer",
+            "id": "12",
+            "source": "GDS",
+            "instantTicketingRequired": false,
+            "nonHomogeneous": false,
+            "oneWay": false,
+            "lastTicketingDate": "2023-02-01",
+            "numberOfBookableSeats": 3,
+            "itineraries": [
+                {
+                    "duration": "PT1H14M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "SGU",
+                                "at": "2023-02-13T06:15:00"
+                            },
+                            "arrival": {
+                                "iataCode": "SLC",
+                                "at": "2023-02-13T07:29:00"
+                            },
+                            "carrierCode": "DL",
+                            "number": "4235",
+                            "aircraft": {
+                                "code": "CRJ"
+                            },
+                            "duration": "PT1H14M",
+                            "id": "2",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                },
+                {
+                    "duration": "PT1H20M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "SLC",
+                                "at": "2023-02-27T22:45:00"
+                            },
+                            "arrival": {
+                                "iataCode": "SGU",
+                                "at": "2023-02-28T00:05:00"
+                            },
+                            "carrierCode": "DL",
+                            "number": "4316",
+                            "aircraft": {
+                                "code": "CRJ"
+                            },
+                            "duration": "PT1H20M",
+                            "id": "8",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                }
+            ],
+            "price": {
+                "currency": "USD",
+                "total": "338.21",
+                "base": "295.81",
+                "fees": [
+                    {
+                        "amount": "0.00",
+                        "type": "SUPPLIER"
+                    },
+                    {
+                        "amount": "0.00",
+                        "type": "TICKETING"
+                    }
+                ],
+                "grandTotal": "338.21"
+            },
+            "pricingOptions": {
+                "fareType": [
+                    "PUBLISHED"
+                ],
+                "includedCheckedBagsOnly": false
+            },
+            "validatingAirlineCodes": [
+                "DL"
+            ],
+            "travelerPricings": [
+                {
+                    "travelerId": "1",
+                    "fareOption": "STANDARD",
+                    "travelerType": "ADULT",
+                    "price": {
+                        "currency": "USD",
+                        "total": "338.21",
+                        "base": "295.81"
+                    },
+                    "fareDetailsBySegment": [
+                        {
+                            "segmentId": "2",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "LE0NBVO",
+                            "brandedFare": "MAINCABIN",
+                            "class": "L",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            }
+                        },
+                        {
+                            "segmentId": "8",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "LE0NBVO",
+                            "brandedFare": "MAINCABIN",
+                            "class": "L",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "flight-offer",
+            "id": "13",
+            "source": "GDS",
+            "instantTicketingRequired": false,
+            "nonHomogeneous": false,
+            "oneWay": false,
+            "lastTicketingDate": "2023-02-01",
+            "numberOfBookableSeats": 3,
+            "itineraries": [
+                {
+                    "duration": "PT1H14M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "SGU",
+                                "at": "2023-02-13T11:27:00"
+                            },
+                            "arrival": {
+                                "iataCode": "SLC",
+                                "at": "2023-02-13T12:41:00"
+                            },
+                            "carrierCode": "DL",
+                            "number": "4337",
+                            "aircraft": {
+                                "code": "CRJ"
+                            },
+                            "duration": "PT1H14M",
+                            "id": "3",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                },
+                {
+                    "duration": "PT1H20M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "SLC",
+                                "at": "2023-02-27T09:27:00"
+                            },
+                            "arrival": {
+                                "iataCode": "SGU",
+                                "at": "2023-02-27T10:47:00"
+                            },
+                            "carrierCode": "DL",
+                            "number": "4337",
+                            "aircraft": {
+                                "code": "CRJ"
+                            },
+                            "duration": "PT1H20M",
+                            "id": "7",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                }
+            ],
+            "price": {
+                "currency": "USD",
+                "total": "338.21",
+                "base": "295.81",
+                "fees": [
+                    {
+                        "amount": "0.00",
+                        "type": "SUPPLIER"
+                    },
+                    {
+                        "amount": "0.00",
+                        "type": "TICKETING"
+                    }
+                ],
+                "grandTotal": "338.21"
+            },
+            "pricingOptions": {
+                "fareType": [
+                    "PUBLISHED"
+                ],
+                "includedCheckedBagsOnly": false
+            },
+            "validatingAirlineCodes": [
+                "DL"
+            ],
+            "travelerPricings": [
+                {
+                    "travelerId": "1",
+                    "fareOption": "STANDARD",
+                    "travelerType": "ADULT",
+                    "price": {
+                        "currency": "USD",
+                        "total": "338.21",
+                        "base": "295.81"
+                    },
+                    "fareDetailsBySegment": [
+                        {
+                            "segmentId": "3",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "LE0NBVO",
+                            "brandedFare": "MAINCABIN",
+                            "class": "L",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            }
+                        },
+                        {
+                            "segmentId": "7",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "LE0NBVO",
+                            "brandedFare": "MAINCABIN",
+                            "class": "L",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "flight-offer",
+            "id": "14",
+            "source": "GDS",
+            "instantTicketingRequired": false,
+            "nonHomogeneous": false,
+            "oneWay": false,
+            "lastTicketingDate": "2023-02-01",
+            "numberOfBookableSeats": 3,
+            "itineraries": [
+                {
+                    "duration": "PT1H14M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "SGU",
+                                "at": "2023-02-13T11:27:00"
+                            },
+                            "arrival": {
+                                "iataCode": "SLC",
+                                "at": "2023-02-13T12:41:00"
+                            },
+                            "carrierCode": "DL",
+                            "number": "4337",
+                            "aircraft": {
+                                "code": "CRJ"
+                            },
+                            "duration": "PT1H14M",
+                            "id": "3",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                },
+                {
+                    "duration": "PT1H20M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "SLC",
+                                "at": "2023-02-27T22:45:00"
+                            },
+                            "arrival": {
+                                "iataCode": "SGU",
+                                "at": "2023-02-28T00:05:00"
+                            },
+                            "carrierCode": "DL",
+                            "number": "4316",
+                            "aircraft": {
+                                "code": "CRJ"
+                            },
+                            "duration": "PT1H20M",
+                            "id": "8",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                }
+            ],
+            "price": {
+                "currency": "USD",
+                "total": "338.21",
+                "base": "295.81",
+                "fees": [
+                    {
+                        "amount": "0.00",
+                        "type": "SUPPLIER"
+                    },
+                    {
+                        "amount": "0.00",
+                        "type": "TICKETING"
+                    }
+                ],
+                "grandTotal": "338.21"
+            },
+            "pricingOptions": {
+                "fareType": [
+                    "PUBLISHED"
+                ],
+                "includedCheckedBagsOnly": false
+            },
+            "validatingAirlineCodes": [
+                "DL"
+            ],
+            "travelerPricings": [
+                {
+                    "travelerId": "1",
+                    "fareOption": "STANDARD",
+                    "travelerType": "ADULT",
+                    "price": {
+                        "currency": "USD",
+                        "total": "338.21",
+                        "base": "295.81"
+                    },
+                    "fareDetailsBySegment": [
+                        {
+                            "segmentId": "3",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "LE0NBVO",
+                            "brandedFare": "MAINCABIN",
+                            "class": "L",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            }
+                        },
+                        {
+                            "segmentId": "8",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "LE0NBVO",
+                            "brandedFare": "MAINCABIN",
+                            "class": "L",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "flight-offer",
+            "id": "15",
+            "source": "GDS",
+            "instantTicketingRequired": false,
+            "nonHomogeneous": false,
+            "oneWay": false,
+            "lastTicketingDate": "2023-02-01",
+            "numberOfBookableSeats": 3,
+            "itineraries": [
+                {
+                    "duration": "PT1H17M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "SGU",
+                                "at": "2023-02-13T19:55:00"
+                            },
+                            "arrival": {
+                                "iataCode": "SLC",
+                                "at": "2023-02-13T21:12:00"
+                            },
+                            "carrierCode": "DL",
+                            "number": "4282",
+                            "aircraft": {
+                                "code": "CRJ"
+                            },
+                            "duration": "PT1H17M",
+                            "id": "4",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                },
+                {
+                    "duration": "PT1H20M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "SLC",
+                                "at": "2023-02-27T09:27:00"
+                            },
+                            "arrival": {
+                                "iataCode": "SGU",
+                                "at": "2023-02-27T10:47:00"
+                            },
+                            "carrierCode": "DL",
+                            "number": "4337",
+                            "aircraft": {
+                                "code": "CRJ"
+                            },
+                            "duration": "PT1H20M",
+                            "id": "7",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                }
+            ],
+            "price": {
+                "currency": "USD",
+                "total": "338.21",
+                "base": "295.81",
+                "fees": [
+                    {
+                        "amount": "0.00",
+                        "type": "SUPPLIER"
+                    },
+                    {
+                        "amount": "0.00",
+                        "type": "TICKETING"
+                    }
+                ],
+                "grandTotal": "338.21"
+            },
+            "pricingOptions": {
+                "fareType": [
+                    "PUBLISHED"
+                ],
+                "includedCheckedBagsOnly": false
+            },
+            "validatingAirlineCodes": [
+                "DL"
+            ],
+            "travelerPricings": [
+                {
+                    "travelerId": "1",
+                    "fareOption": "STANDARD",
+                    "travelerType": "ADULT",
+                    "price": {
+                        "currency": "USD",
+                        "total": "338.21",
+                        "base": "295.81"
+                    },
+                    "fareDetailsBySegment": [
+                        {
+                            "segmentId": "4",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "LE0NBVO",
+                            "brandedFare": "MAINCABIN",
+                            "class": "L",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            }
+                        },
+                        {
+                            "segmentId": "7",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "LE0NBVO",
+                            "brandedFare": "MAINCABIN",
+                            "class": "L",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "flight-offer",
+            "id": "16",
+            "source": "GDS",
+            "instantTicketingRequired": false,
+            "nonHomogeneous": false,
+            "oneWay": false,
+            "lastTicketingDate": "2023-02-01",
+            "numberOfBookableSeats": 3,
+            "itineraries": [
+                {
+                    "duration": "PT1H17M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "SGU",
+                                "at": "2023-02-13T19:55:00"
+                            },
+                            "arrival": {
+                                "iataCode": "SLC",
+                                "at": "2023-02-13T21:12:00"
+                            },
+                            "carrierCode": "DL",
+                            "number": "4282",
+                            "aircraft": {
+                                "code": "CRJ"
+                            },
+                            "duration": "PT1H17M",
+                            "id": "4",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                },
+                {
+                    "duration": "PT1H20M",
+                    "segments": [
+                        {
+                            "departure": {
+                                "iataCode": "SLC",
+                                "at": "2023-02-27T22:45:00"
+                            },
+                            "arrival": {
+                                "iataCode": "SGU",
+                                "at": "2023-02-28T00:05:00"
+                            },
+                            "carrierCode": "DL",
+                            "number": "4316",
+                            "aircraft": {
+                                "code": "CRJ"
+                            },
+                            "duration": "PT1H20M",
+                            "id": "8",
+                            "numberOfStops": 0,
+                            "blacklistedInEU": false
+                        }
+                    ]
+                }
+            ],
+            "price": {
+                "currency": "USD",
+                "total": "338.21",
+                "base": "295.81",
+                "fees": [
+                    {
+                        "amount": "0.00",
+                        "type": "SUPPLIER"
+                    },
+                    {
+                        "amount": "0.00",
+                        "type": "TICKETING"
+                    }
+                ],
+                "grandTotal": "338.21"
+            },
+            "pricingOptions": {
+                "fareType": [
+                    "PUBLISHED"
+                ],
+                "includedCheckedBagsOnly": false
+            },
+            "validatingAirlineCodes": [
+                "DL"
+            ],
+            "travelerPricings": [
+                {
+                    "travelerId": "1",
+                    "fareOption": "STANDARD",
+                    "travelerType": "ADULT",
+                    "price": {
+                        "currency": "USD",
+                        "total": "338.21",
+                        "base": "295.81"
+                    },
+                    "fareDetailsBySegment": [
+                        {
+                            "segmentId": "4",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "LE0NBVO",
+                            "brandedFare": "MAINCABIN",
+                            "class": "L",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            }
+                        },
+                        {
+                            "segmentId": "8",
+                            "cabin": "ECONOMY",
+                            "fareBasis": "LE0NBVO",
+                            "brandedFare": "MAINCABIN",
+                            "class": "L",
+                            "includedCheckedBags": {
+                                "quantity": 0
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "dictionaries": {
+        "locations": {
+            "SGU": {
+                "cityCode": "SGU",
+                "countryCode": "US"
+            },
+            "SLC": {
+                "cityCode": "SLC",
+                "countryCode": "US"
+            }
+        },
+        "aircraft": {
+            "CRJ": "CANADAIR REGIONAL JET"
+        },
+        "currencies": {
+            "USD": "US DOLLAR"
+        },
+        "carriers": {
+            "DL": "DELTA AIR LINES"
+        }
+    }
+}
