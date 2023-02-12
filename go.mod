@@ -2,7 +2,6 @@ module github.com/Kamden-Rasmussen/PickupandGO
 
 go 1.19
 
-require (
-	github.com/Kamden-Rasmussen/PickupandGO v0.0.0-20230131021453-f7e7579c6d28
-	github.com/gorilla/mux v1.8.0
-)
+require github.com/gorilla/mux v1.8.0
+
+require gopkg.in/robfig/cron.v2 v2.0.0-20150107220207-be2e0b0deed5

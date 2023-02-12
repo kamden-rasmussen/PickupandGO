@@ -1,4 +1,4 @@
-github.com/Kamden-Rasmussen/PickupandGO v0.0.0-20230131021453-f7e7579c6d28 h1:ZgpTS6B6NiGACFzB0yUJKIULlHSlUb+f2uSYsa21abg=
-github.com/Kamden-Rasmussen/PickupandGO v0.0.0-20230131021453-f7e7579c6d28/go.mod h1:jsFKd+G6e2IFXMQvUXGezuI3gsrm0N6mKJ+qtBxT1Vk=
 github.com/gorilla/mux v1.8.0 h1:i40aqfkR1h2SlN9hojwV5ZA91wcXFOvkdNIeFDP5koI=
 github.com/gorilla/mux v1.8.0/go.mod h1:DVbg23sWSpFRCP0SfiEN6jmj59UnW/n46BH5rLB71So=
+gopkg.in/robfig/cron.v2 v2.0.0-20150107220207-be2e0b0deed5 h1:E846t8CnR+lv5nE+VuiKTDG/v1U2stad0QzddfJC7kY=
+gopkg.in/robfig/cron.v2 v2.0.0-20150107220207-be2e0b0deed5/go.mod h1:hiOFpYm0ZJbusNj2ywpbrXowU3G8U6GIQzqn2mw1UIE=
