@@ -34,21 +34,21 @@ func main(){
 	}
 
 	// connect to a database
-	db, err := Init()
+	db, err = Init()
 	if err != nil {
 		log.Fatal(err)
 	} else {
 		log.Println("Connected to database")
 	}
 	defer db.Close()
-	GetFunTable(db)
 
 	// start cron jobs
 	startCron(db)
-
+	
 	// start server
 	log.Println("Starting Server on Port 8018")
-
+	
+	allHealthChecks()
 	router := handlers.InitializeHandlers()
 	log.Fatal(http.ListenAndServe(":8018", router))
 }
@@ -56,8 +56,7 @@ func main(){
 func startCron(db *sql.DB) {
 	cron := cron.NewCron()
 	log.Println("Starting Cron Jobs")
-	cron.AddFunc("@every 5m", data.PrintHealth)
-	// cron.AddFunc("@every 5m", allHealthChecks)
+	cron.AddFunc("@every 5m", allHealthChecks)
 	// cron.AddFunc("@every 12h", data.GetData)
 	// cron.AddFunc("0 0 1 * * *", data.PrintLetsGo)
 	cron.AddFunc("0 0 13 * * *", data.PrintLetsGo)
@@ -66,9 +65,12 @@ func startCron(db *sql.DB) {
 }
 
 func allHealthChecks() {
+	log.Println("Application is running and healthy")
 	err := dbHealthCheck(db)
 	if err != nil {
 		log.Fatal(err)
+	} else {
+		log.Println("Database is healthy")
 	}
 	
 }

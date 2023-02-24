@@ -39,7 +39,6 @@ type FlightOffer struct {
 	ID string `json:"id,omitempty"`
 	Source string `json:"source,omitempty"`
 	OneWay bool `json:"oneWay,omitempty"`
-	LastTicketingDate string `json:"lastTicketingDate,omitempty"`
 	NumberOfBookableSeats int `json:"numberOfBookableSeats,omitempty"`
 	Itineraries []Itinerary `json:"itineraries,omitempty"`
 	Pricing Pricing `json:"price,omitempty"`
@@ -55,33 +54,23 @@ type Segment struct {
 	Departure Departure `json:"departure,omitempty"`
 	Arrival Arrival `json:"arrival,omitempty"`
 	CarrierCode string `json:"carrierCode,omitempty"`
-	Number string `json:"number,omitempty"`
-	Duration string `json:"duration,omitempty"`
 	Id string `json:"id,omitempty"`
 	NumberOfStops int `json:"numberOfStops,omitempty"`
-	BlacklistedInEU bool `json:"blacklistedInEU,omitempty"`
 }
 
 type Departure struct {
 	IATACode string `json:"iataCode,omitempty"`
-	Terminal string `json:"terminal,omitempty"`
 	At string `json:"at,omitempty"`
 }
 
 type Arrival struct {
 	IATACode string `json:"iataCode,omitempty"`
-	Terminal string `json:"terminal,omitempty"`
 	At string `json:"at,omitempty"`
 }
 type Pricing struct {
 	Currency string `json:"currency,omitempty"`
 	Total string `json:"total,omitempty"`
 	Base string `json:"base,omitempty"`
-}
-
-
-func PrintHealth() {
-	log.Println("Container is healthy")
 }
 
 func PrintLetsGo() {
