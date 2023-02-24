@@ -8,7 +8,7 @@ import (
 	"github.com/go-sql-driver/mysql"
 )
 
-func connectToDatabase() (*sql.DB, error) {
+func ConnectToDatabase() (*sql.DB, error) {
 	// connect to a database
 	config := mysql.Config{
         User:      os.Getenv("DBACCESSUSERNAME"),
@@ -25,7 +25,7 @@ func connectToDatabase() (*sql.DB, error) {
 	return db, err
 }
 
-func getFunTable(db *sql.DB) {
+func GetFunTable(db *sql.DB) {
 	results, err := db.Query("SELECT * FROM fun")
 	if err != nil {
 		log.Fatal(err.Error())
@@ -42,3 +42,7 @@ func getFunTable(db *sql.DB) {
 	}
 
 }
+
+// func dbHealthCheck(db *sql.DB) error {
+// 	return db.Ping()
+// }

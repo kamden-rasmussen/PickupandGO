@@ -42,8 +42,7 @@ type FlightOffer struct {
 	LastTicketingDate string `json:"lastTicketingDate,omitempty"`
 	NumberOfBookableSeats int `json:"numberOfBookableSeats,omitempty"`
 	Itineraries []Itinerary `json:"itineraries,omitempty"`
-	PricingOptions []PricingOption `json:"pricingOptions,omitempty"`
-	Pricing []Pricing `json:"pricing,omitempty"`
+	Pricing []Pricing `json:"pricing[totalPrice],omitempty"`
 	ValidatingAirlineCodes []string `json:"validatingAirlineCodes,omitempty"`
 }
 
@@ -57,7 +56,6 @@ type Segment struct {
 	Arrival Arrival `json:"arrival,omitempty"`
 	CarrierCode string `json:"carrierCode,omitempty"`
 	Number string `json:"number,omitempty"`
-	Aircraft Aircraft `json:"aircraft,omitempty"`
 	Operating Operating `json:"operating,omitempty"`
 	Duration string `json:"duration,omitempty"`
 	Id string `json:"id,omitempty"`
@@ -76,18 +74,8 @@ type Arrival struct {
 	Terminal string `json:"terminal,omitempty"`
 	At string `json:"at,omitempty"`
 }
-
-type Aircraft struct {
-	Code string `json:"code,omitempty"`
-}
-
 type Operating struct {
 	CarrierCode string `json:"carrierCode,omitempty"`
-}
-
-type PricingOption struct {
-	Price string `json:"price,omitempty"`
-	Agents []string `json:"agents,omitempty"`
 }
 
 type Pricing struct {
@@ -111,6 +99,10 @@ type Fee struct {
 
 func PrintHealth() {
 	log.Println("Container is healthy")
+}
+
+func PrintLetsGo() {
+	log.Println("--------------------- Let's go! ---------------------")
 }
 
 func GetAuth() (*AmadeusToken){

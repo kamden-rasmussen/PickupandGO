@@ -1,6 +1,7 @@
 package data
 
 import (
+	"encoding/json"
 	"log"
 	"net/http"
 )
@@ -44,4 +45,13 @@ func GetFlights(
 		log.Println("Error on response.\n[ERROR] -", err)
 	}
 	defer resp.Body.Close()
+
+	flightOffer := FlightOffer{}
+
+	err = json.NewDecoder(resp.Body).Decode(&flightOffer)
+	if err != nil {
+		log.Println("Error on response.\n[ERROR] -", err)
+	}
+
+	log.Println(flightOffer)
 }
