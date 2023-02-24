@@ -30,14 +30,14 @@ func main(){
 	}
 
 	// connect to a database
-	db, err := connectToDatabase()
+	db, err := ConnectToDatabase()
 	if err != nil {
 		log.Fatal(err)
 	} else {
 		log.Println("Connected to database")
 	}
 	defer db.Close()
-	getFunTable(db)
+	GetFunTable(db)
 
 	// start cron jobs
 	startCron()
@@ -51,7 +51,18 @@ func main(){
 
 func startCron() {
 	cron := cron.NewCron()
-	cron.AddFunc("@every 60s", data.PrintHealth)
+	cron.AddFunc("@every 5m", data.PrintHealth)
 	// cron.AddFunc("@every 12h", data.GetData)
+	// cron.AddFunc("0 0 1 * * *", data.PrintLetsGo)
+	cron.AddFunc("0 0 13 * * *", data.PrintLetsGo)
+
 	cron.Start()
 }
+
+// func allHealthChecks(db *sql.DB) {
+// 	err := dbHealthCheck(db)
+// 	if err != nil {
+// 		log.Fatal(err)
+// 	}
+	
+// }
