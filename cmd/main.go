@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"database/sql"
 	"log"
 	"net/http"
 	"os"
@@ -9,8 +10,11 @@ import (
 	"github.com/Kamden-Rasmussen/PickupandGO/pkg/handlers"
 	"github.com/Kamden-Rasmussen/PickupandGO/src/cron"
 	"github.com/Kamden-Rasmussen/PickupandGO/src/data"
+	"github.com/go-sql-driver/mysql"
 	"github.com/joho/godotenv"
 )
+
+var db *sql.DB
 
 func main(){
 	_ = context.Background()
@@ -30,7 +34,7 @@ func main(){
 	}
 
 	// connect to a database
-	db, err := ConnectToDatabase()
+	db, err := Init()
 	if err != nil {
 		log.Fatal(err)
 	} else {
@@ -40,7 +44,7 @@ func main(){
 	GetFunTable(db)
 
 	// start cron jobs
-	startCron()
+	startCron(db)
 
 	// start server
 	log.Println("Starting Server on Port 8018")
@@ -49,9 +53,11 @@ func main(){
 	log.Fatal(http.ListenAndServe(":8018", router))
 }
 
-func startCron() {
+func startCron(db *sql.DB) {
 	cron := cron.NewCron()
+	log.Println("Starting Cron Jobs")
 	cron.AddFunc("@every 5m", data.PrintHealth)
+	// cron.AddFunc("@every 5m", allHealthChecks)
 	// cron.AddFunc("@every 12h", data.GetData)
 	// cron.AddFunc("0 0 1 * * *", data.PrintLetsGo)
 	cron.AddFunc("0 0 13 * * *", data.PrintLetsGo)
@@ -59,10 +65,49 @@ func startCron() {
 	cron.Start()
 }
 
-// func allHealthChecks(db *sql.DB) {
-// 	err := dbHealthCheck(db)
-// 	if err != nil {
-// 		log.Fatal(err)
-// 	}
+func allHealthChecks() {
+	err := dbHealthCheck(db)
+	if err != nil {
+		log.Fatal(err)
+	}
 	
-// }
+}
+
+func Init() (*sql.DB, error) {
+	// connect to a database
+	config := mysql.Config{
+        User:      os.Getenv("DBACCESSUSERNAME"),
+		Passwd:    os.Getenv("DBACCESSPASSWORD"),
+		Net:       "tcp",
+		Addr:      os.Getenv("DBHOST"),
+		DBName:    os.Getenv("DBDATABASENAME"),
+    }
+	db, err := sql.Open("mysql", config.FormatDSN())
+	pingErr := db.Ping()
+    if pingErr != nil {
+        log.Fatal(pingErr)
+    }
+	return db, err
+}
+
+func GetFunTable(db *sql.DB) {
+	results, err := db.Query("SELECT * FROM fun")
+	if err != nil {
+		log.Fatal(err.Error())
+	}
+	for results.Next() {
+		var id int
+		var name string
+		var color string
+		err = results.Scan(&id, &name, &color)
+		if err != nil {
+			log.Fatal(err.Error())
+		}
+		// log.Println(id, name, color)
+	}
+
+}
+
+func dbHealthCheck(db *sql.DB) error {
+	return db.Ping()
+}
