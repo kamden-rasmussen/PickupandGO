@@ -42,7 +42,7 @@ type FlightOffer struct {
 	LastTicketingDate string `json:"lastTicketingDate,omitempty"`
 	NumberOfBookableSeats int `json:"numberOfBookableSeats,omitempty"`
 	Itineraries []Itinerary `json:"itineraries,omitempty"`
-	Pricing []Pricing `json:"pricing[totalPrice],omitempty"`
+	Pricing Pricing `json:"price,omitempty"`
 	ValidatingAirlineCodes []string `json:"validatingAirlineCodes,omitempty"`
 }
 
@@ -56,7 +56,6 @@ type Segment struct {
 	Arrival Arrival `json:"arrival,omitempty"`
 	CarrierCode string `json:"carrierCode,omitempty"`
 	Number string `json:"number,omitempty"`
-	Operating Operating `json:"operating,omitempty"`
 	Duration string `json:"duration,omitempty"`
 	Id string `json:"id,omitempty"`
 	NumberOfStops int `json:"numberOfStops,omitempty"`
@@ -74,26 +73,10 @@ type Arrival struct {
 	Terminal string `json:"terminal,omitempty"`
 	At string `json:"at,omitempty"`
 }
-type Operating struct {
-	CarrierCode string `json:"carrierCode,omitempty"`
-}
-
 type Pricing struct {
-	Price string `json:"price,omitempty"`
-	TotalPrice string `json:"totalPrice,omitempty"`
-	BasePrice string `json:"basePrice,omitempty"`
-	Taxes []Tax `json:"taxes,omitempty"`
-	Fees []Fee `json:"fees,omitempty"`
-}
-
-type Tax struct {
-	Amount string `json:"amount,omitempty"`
-	Type string `json:"type,omitempty"`
-}
-
-type Fee struct {
-	Amount string `json:"amount,omitempty"`
-	Type string `json:"type,omitempty"`
+	Currency string `json:"currency,omitempty"`
+	Total string `json:"total,omitempty"`
+	Base string `json:"base,omitempty"`
 }
 
 
@@ -133,7 +116,6 @@ func GetAuth() (*AmadeusToken){
 	if err != nil {
 		log.Fatal("error unmarshalling response body: ", err)
 	}
-	log.Println(OAuthToken)
 
 	return &OAuthToken
 }
@@ -141,10 +123,15 @@ func GetAuth() (*AmadeusToken){
 func GetData() {
 	// get auth token
 	OAuth2 := GetAuth()
-	log.Println(OAuth2.Token)
 
 	// get flights
-	GetFlights(OAuth2.Token, "SGU", "SLC", "2023-12-01", "2023-12-05", "1", "DL", "USD")
-	
+	flightOffers := GetFlights(OAuth2.Token, "SGU", "SLC", "2023-12-01", "2023-12-02", "1", "DL", "USD")
+
+	// print flights
+	log.Println(flightOffers)
+	for _, flightOffer := range flightOffers.Data {
+		printable := flightOffer.ID + " " + flightOffer.Source + " " + flightOffer.Pricing.Total + " " + flightOffer.Pricing.Currency
+		log.Println(printable)
+	}
 }
 
