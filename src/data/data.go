@@ -108,7 +108,7 @@ func GetAuth() (*AmadeusToken){
 	return &OAuthToken
 }
 
-func GetData() {
+func GetExampleData() {
 	// get auth token
 	OAuth2 := GetAuth()
 
@@ -121,5 +121,15 @@ func GetData() {
 		printable := flightOffer.ID + " " + flightOffer.Pricing.Total + " " + flightOffer.Pricing.Currency
 		log.Println(printable)
 	}
+}
+
+func GetData(home string, destination string, departure_date string, return_date string, passengers string, airline_code string, currency string) (*FlightOffers) {
+	// get auth token
+	OAuth2 := GetAuth()
+
+	// get flights
+	flightOffers := GetFlights(OAuth2.Token, home, destination, departure_date, return_date, passengers, airline_code, currency)
+
+	return flightOffers
 }
 
