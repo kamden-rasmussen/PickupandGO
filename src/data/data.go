@@ -2,7 +2,7 @@ package data
 
 import (
 	"encoding/json"
-	"io/ioutil"
+	"io"
 	"log"
 	"net/http"
 	"os"
@@ -37,7 +37,6 @@ type FlightOffers struct {
 
 type FlightOffer struct {
 	ID string `json:"id,omitempty"`
-	Source string `json:"source,omitempty"`
 	OneWay bool `json:"oneWay,omitempty"`
 	NumberOfBookableSeats int `json:"numberOfBookableSeats,omitempty"`
 	Itineraries []Itinerary `json:"itineraries,omitempty"`
@@ -93,7 +92,7 @@ func GetAuth() (*AmadeusToken){
 	}
 	
 	// read response body
-	body, err := ioutil.ReadAll(resp.Body)
+	body, err := io.ReadAll(resp.Body)
 	if err != nil {
 		log.Fatal("error reading response body: ", err)
 	}
@@ -119,7 +118,7 @@ func GetData() {
 	// print flights
 	log.Println(flightOffers)
 	for _, flightOffer := range flightOffers.Data {
-		printable := flightOffer.ID + " " + flightOffer.Source + " " + flightOffer.Pricing.Total + " " + flightOffer.Pricing.Currency
+		printable := flightOffer.ID + " " + flightOffer.Pricing.Total + " " + flightOffer.Pricing.Currency
 		log.Println(printable)
 	}
 }
