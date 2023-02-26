@@ -59,21 +59,21 @@ func main(){
 func startCron(db *sql.DB) {
 	cron := cron.NewCron()
 	log.Println("Starting Cron Jobs")
-	cron.AddFunc("@every 5m", allHealthChecks)
+	cron.AddFunc("@every 30m", allHealthChecks)
 	// cron.AddFunc("@every 12h", data.GetData)
 	// cron.AddFunc("0 0 1 * * *", data.PrintLetsGo)
-	cron.AddFunc("0 0 13 * * *", data.PrintLetsGo)
+	cron.AddFunc("0 0 18 * * *", data.PrintLetsGo)
 
 	cron.Start()
 }
 
 func allHealthChecks() {
-	log.Println("Application is running and healthy")
+	// log.Println("Application is running and healthy")
 	err := dbHealthCheck(db)
 	if err != nil {
 		log.Fatal(err)
 	} else {
-		log.Println("Database is healthy")
+		log.Println("Database and connection are healthy")
 	}
 	
 }
