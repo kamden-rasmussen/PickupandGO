@@ -43,7 +43,6 @@ func GetFlights(
 	// add authorization header to the req
 	req.Header.Add("Authorization", bearer)
 
-
 	log.Println(req.Header)
 
 	// Send req using http Client
@@ -72,7 +71,5 @@ func GetFlights(
 		log.Println("error unmarshalling response body: ", err)
 	}
 
-
-	// log.Println(flightOffer)
 	return &flightOffers
 }
