@@ -2,7 +2,7 @@ package data
 
 import (
 	"encoding/json"
-	"io/ioutil"
+	"io"
 	"log"
 	"net/http"
 )
@@ -55,7 +55,7 @@ func GetFlights(
 	defer resp.Body.Close()
 
 	// ready body for unmarshalling
-	bytes, err := ioutil.ReadAll(resp.Body)
+	bytes, err := io.ReadAll(resp.Body)
 	if err != nil {
 		log.Println("Error reading response body.\n[ERROR] -", err)
 	}
