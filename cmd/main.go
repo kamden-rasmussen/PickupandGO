@@ -42,6 +42,9 @@ func main(){
 	}
 	defer db.Close()
 
+	// create tables
+	// SetUpTables(db) // only run once
+
 	// start cron jobs
 	startCron(db)
 	
@@ -90,6 +93,58 @@ func Init() (*sql.DB, error) {
         log.Fatal(pingErr)
     }
 	return db, err
+}
+
+func SetUpTables(db *sql.DB) {
+
+	// remove security for now
+	_, err := db.Exec("SET SESSION sql_require_primary_key = 0;")
+	if err != nil {
+		log.Fatal(err.Error())
+	}
+
+	query := os.Getenv("CREATE_USERS_TABLE")
+	// create users table
+	_, err = db.Exec(query)
+	if err != nil {
+		log.Fatal(err.Error())
+	}
+	
+	// create airports table
+	query = os.Getenv("CREATE_AIRPORTS_TABLE")
+
+	_, err = db.Exec(query)
+	if err != nil {
+		log.Fatal(err.Error())
+	}
+
+	// create destinations table
+	query = os.Getenv("CREATE_DESTINATIONS_TABLE")
+	_, err = db.Exec(query)
+	if err != nil {
+		log.Fatal(err.Error())
+	}
+
+	// create companies table
+	query = os.Getenv("CREATE_COMPANIES_TABLE")
+	_, err = db.Exec(query)
+	if err != nil {
+		log.Fatal(err.Error())
+	}
+
+	// create airlines table
+	query = os.Getenv("CREATE_AIRLINES_TABLE")
+	_, err = db.Exec(query)
+	if err != nil {
+		log.Fatal(err.Error())
+	}
+
+	// create flights table
+	query = os.Getenv("CREATE_FLIGHTS_TABLE")
+	_, err = db.Exec(query)
+	if err != nil {
+		log.Fatal(err.Error())
+	}
 }
 
 func GetFunTable(db *sql.DB) {
