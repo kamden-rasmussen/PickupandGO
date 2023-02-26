@@ -17,6 +17,6 @@ func GetHealthCheck() func(w http.ResponseWriter, r *http.Request) {
 func GetDataEndpoint() func(w http.ResponseWriter, r *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
-		data.GetData()
+		data.GetExampleData()
 	}
 }
