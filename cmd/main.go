@@ -62,7 +62,7 @@ func startCron(db *sql.DB) {
 	cron.AddFunc("@every 30m", allHealthChecks)
 	// cron.AddFunc("@every 12h", data.GetData)
 	// cron.AddFunc("0 0 1 * * *", data.PrintLetsGo)
-	cron.AddFunc("0 0 18 * * *", data.PrintLetsGo)
+	cron.AddFunc("0 0 08 * * *", data.PrintLetsGo)
 
 	cron.Start()
 }
