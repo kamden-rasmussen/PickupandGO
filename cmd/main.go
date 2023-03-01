@@ -40,10 +40,16 @@ func main(){
 	}
 
 	// create tables
-	// SetUpTables(db) // only run once
+	if os.Getenv("CREATE_TABLES") == "true" {
+		mydatabase.SetUpTables(mydatabase.MyDB) // only run once
+		os.Setenv("CREATE_TABLES", "false")
+	}
 
 	// setup airports
-	mydatabase.SetUpAirportCodes()
+	if os.Getenv("SETUP_AIRPORTS") == "true" {
+		mydatabase.SetUpAirportCodes()
+		os.Setenv("SETUP_AIRPORTS", "false")
+	}
 
 	// start cron jobs
 	startCron(mydatabase.MyDB)
