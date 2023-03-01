@@ -3,7 +3,7 @@ package handlers
 import (
 	"net/http"
 
-	"github.com/Kamden-Rasmussen/PickupandGO/src/data"
+	"github.com/Kamden-Rasmussen/PickupandGO/pkg/data"
 )
 
 func GetHealthCheck() func(w http.ResponseWriter, r *http.Request) {
