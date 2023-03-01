@@ -120,7 +120,7 @@ func GetExampleData() {
 	// print flights
 	log.Println(flightOffers)
 	for _, flightOffer := range flightOffers.Data {
-		printable := flightOffer.ID + " " + flightOffer.Pricing.Total + " " + flightOffer.Pricing.Currency
+		printable := flightOffer.ID
 		log.Println(printable)
 		SaveData(flightOffer)
 	}
@@ -141,20 +141,39 @@ func GetData(home string, destination string, departure_date string, return_date
 }
 
 func SaveData(flightOffer FlightOffer){
+
+	// convert itineraries to json
+	itineraries, err := json.Marshal(flightOffer.Itineraries)
+	if err != nil {
+		log.Fatal("error converting itineraries to json: ", err)
+	}
+
+	// get airports 
+	departureAirport := GetAirport(flightOffer.Itineraries[0].Segments[0].Departure.IATACode)
+	arrivalAirport := GetAirport(flightOffer.Itineraries[0].Segments[0].Arrival.IATACode)
 	
-	_, err := mydatabase.MyDB.Exec("INSERT INTO flights (id, price, stops, duration, seats, departure_location, arrival_location, one_way, itineraries) values( ?, ?, ?, ?, ?, ?, ?, ?, ?)", 
+	_, err = mydatabase.MyDB.Exec("INSERT INTO flights (id, price, stops, duration, seats, departure_location, arrival_location, one_way, itineraries) values( ?, ?, ?, ?, ?, ?, ?, ?, ?)", 
 			flightOffer.ID, 
 			flightOffer.Pricing.Total, 
 			flightOffer.Itineraries[0].Segments[0].NumberOfStops, 
 			flightOffer.Itineraries[0].Duration, 
 			flightOffer.NumberOfBookableSeats, 
-			flightOffer.Itineraries[0].Segments[0].Departure.IATACode, 
-			flightOffer.Itineraries[0].Segments[0].Arrival.IATACode, 
+			departureAirport,
+			arrivalAirport,
 			flightOffer.OneWay,
-			flightOffer.Itineraries)
+			itineraries)
 
 	if err != nil {
 		log.Fatal("error inserting into flights: ", err)
 	}
+}
+
+func GetAirport(iataCode string) (int){
+	var airportID int
+	err := mydatabase.MyDB.QueryRow("SELECT id FROM airports WHERE code = ?", iataCode).Scan(&airportID)
+	if err != nil {
+		log.Fatal("error getting airport id: ", err)
+	}
+	return airportID
 }
 
