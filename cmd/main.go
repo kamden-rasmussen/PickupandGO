@@ -14,8 +14,6 @@ import (
 	"github.com/joho/godotenv"
 )
 
-var db *sql.DB
-
 func main(){
 	_ = context.Background()
 
@@ -34,19 +32,18 @@ func main(){
 	}
 
 	// connect to a database
-	db, err = mydatabase.Init()
+	err = mydatabase.Init()
 	if err != nil {
 		log.Fatal(err)
 	} else {
 		log.Println("Connected to database")
 	}
-	defer db.Close()
 
 	// create tables
 	// SetUpTables(db) // only run once
 
 	// start cron jobs
-	startCron(db)
+	startCron(mydatabase.MyDB)
 	
 	// start server
 	log.Println("Starting Server on Port 8018")
@@ -59,7 +56,7 @@ func main(){
 func startCron(db *sql.DB) {
 	cron := cron.NewCron()
 	log.Println("Starting Cron Jobs")
-	cron.AddFunc("@every 1m", allHealthChecks)
+	cron.AddFunc("@every 30m", allHealthChecks)
 	// cron.AddFunc("@every 12h", data.GetData)
 	// cron.AddFunc("0 0 1 * * *", data.PrintLetsGo)
 	cron.AddFunc("0 0 08 * * *", data.PrintLetsGo)
@@ -69,7 +66,7 @@ func startCron(db *sql.DB) {
 
 func allHealthChecks() {
 	// log.Println("Application is running and healthy")
-	err := mydatabase.DbHealthCheck(db)
+	err := mydatabase.DbHealthCheck()
 	if err != nil {
 		log.Fatal(err)
 	} else {

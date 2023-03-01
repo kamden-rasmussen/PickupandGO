@@ -11,7 +11,7 @@ import (
 // global variable for database
 var MyDB *sql.DB
 
-func Init() (MyDB *sql.DB, err error) {
+func Init() (err error) {
 	// connect to a database
 	config := mysql.Config{
         User:      os.Getenv("DBACCESSUSERNAME"),
@@ -20,14 +20,16 @@ func Init() (MyDB *sql.DB, err error) {
 		Addr:      os.Getenv("DBHOST"),
 		DBName:    os.Getenv("DBDATABASENAME"),
     }
-	db, err := sql.Open("mysql", config.FormatDSN())
-	pingErr := db.Ping()
+	MyDB, err = sql.Open("mysql", config.FormatDSN())
+	pingErr := MyDB.Ping()
     if pingErr != nil {
         log.Fatal(pingErr)
     }
-	MyDB = db
+	// defer MyDB.Close()
 
-	return MyDB, err
+	log.Println("Connected to database")
+
+	return err
 
 }
 
@@ -100,8 +102,8 @@ func GetFunTable(db *sql.DB) {
 	}	
 }
 
-func DbHealthCheck(db *sql.DB) error {
-	return db.Ping()
+func DbHealthCheck() error {
+	return MyDB.Ping()
 }
 
 func GetDB() *sql.DB {
