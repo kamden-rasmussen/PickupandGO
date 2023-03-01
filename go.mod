@@ -9,5 +9,3 @@ require (
 	github.com/joho/godotenv v1.5.1
 	gopkg.in/robfig/cron.v2 v2.0.0-20150107220207-be2e0b0deed5
 )
-
-replace github.com/Kamden-Rasmussen/PickupandGO/src/data => ../data

@@ -7,6 +7,8 @@ import (
 	"net/http"
 	"os"
 	"strings"
+
+	"github.com/Kamden-Rasmussen/PickupandGO/pkg/mydatabase"
 )
 
 /*
@@ -120,6 +122,7 @@ func GetExampleData() {
 	for _, flightOffer := range flightOffers.Data {
 		printable := flightOffer.ID + " " + flightOffer.Pricing.Total + " " + flightOffer.Pricing.Currency
 		log.Println(printable)
+		SaveData(flightOffer)
 	}
 }
 
@@ -130,6 +133,28 @@ func GetData(home string, destination string, departure_date string, return_date
 	// get flights
 	flightOffers := GetFlights(OAuth2.Token, home, destination, departure_date, return_date, passengers, airline_code, currency)
 
+	for _, flightOffer := range flightOffers.Data {
+		SaveData(flightOffer)
+	}
+
 	return flightOffers
+}
+
+func SaveData(flightOffer FlightOffer){
+	
+	_, err := mydatabase.MyDB.Exec("INSERT INTO flights (id, price, stops, duration, seats, departure_location, arrival_location, one_way, itineraries) values( ?, ?, ?, ?, ?, ?, ?, ?, ?)", 
+			flightOffer.ID, 
+			flightOffer.Pricing.Total, 
+			flightOffer.Itineraries[0].Segments[0].NumberOfStops, 
+			flightOffer.Itineraries[0].Duration, 
+			flightOffer.NumberOfBookableSeats, 
+			flightOffer.Itineraries[0].Segments[0].Departure.IATACode, 
+			flightOffer.Itineraries[0].Segments[0].Arrival.IATACode, 
+			flightOffer.OneWay,
+			flightOffer.Itineraries)
+
+	if err != nil {
+		log.Fatal("error inserting into flights: ", err)
+	}
 }
 
