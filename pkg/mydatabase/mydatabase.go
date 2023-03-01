@@ -2,6 +2,7 @@ package mydatabase
 
 import (
 	"database/sql"
+	"encoding/csv"
 	"log"
 	"os"
 
@@ -100,6 +101,30 @@ func GetFunTable(db *sql.DB) {
 		}
 		// log.Println(id, name, color)
 	}	
+}
+
+func SetUpAirportCodes() {
+	// open airport-codes.csv
+	csvfile, err := os.Open("airport-codes.csv")
+	if err != nil {
+		log.Fatalln("Couldn't open the csv file", err)
+	}
+	// read file
+	r := csv.NewReader(csvfile)
+	// parse file
+	records, err := r.ReadAll()
+	if err != nil {
+		log.Fatalln("Couldn't parse the csv file", err)
+	}
+	// insert into airports table
+	for _, row := range records {
+		// log.Println(row)
+		_, err = MyDB.Exec("INSERT INTO airports (name, code) VALUES (?, ?)", row[0], row[1])
+		if err != nil {
+			log.Fatal(err.Error())
+		}
+	}
+
 }
 
 func DbHealthCheck() error {

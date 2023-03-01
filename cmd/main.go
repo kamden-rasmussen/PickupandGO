@@ -42,6 +42,9 @@ func main(){
 	// create tables
 	// SetUpTables(db) // only run once
 
+	// setup airports
+	mydatabase.SetUpAirportCodes()
+
 	// start cron jobs
 	startCron(mydatabase.MyDB)
 	
