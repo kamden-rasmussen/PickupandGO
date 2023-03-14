@@ -190,3 +190,19 @@ func GetReturnDate() (string){
 	return returnDate
 }
 
+func ReoccuringTask() {
+	departureDate := GetDepartureDate()
+	returnDate := GetReturnDate()
+	users := GetAllUsers()
+
+	for _, user := range users {
+		destinations := GetDestinationsForUser(user.Id)
+		home := GetAirportById(user.Home)
+		for _, destination := range destinations {
+			dest := GetAirportById(destination)
+			GetData(home, dest, departureDate, returnDate, "2", "DL", "USD")
+		}
+	}
+
+
+}
