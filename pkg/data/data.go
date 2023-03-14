@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"os"
 	"strings"
+	"time"
 
 	"github.com/Kamden-Rasmussen/PickupandGO/pkg/mydatabase"
 )
@@ -175,5 +176,17 @@ func GetAirport(iataCode string) (int){
 		log.Fatal("error getting airport id: ", err)
 	}
 	return airportID
+}
+
+func GetDepartureDate() (string){
+	t := time.Now()
+	departureDate := t.AddDate(0, 0, 7).Format("2006-01-02")
+	return departureDate
+}
+
+func GetReturnDate() (string){
+	t := time.Now()
+	returnDate := t.AddDate(0, 0, 14).Format("2006-01-02")
+	return returnDate
 }
 
