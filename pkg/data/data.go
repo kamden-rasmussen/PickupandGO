@@ -151,18 +151,19 @@ func SaveData(flightOffer FlightOffer){
 
 	// get airports 
 	departureAirport := GetAirport(flightOffer.Itineraries[0].Segments[0].Departure.IATACode)
-	arrivalAirport := GetAirport(flightOffer.Itineraries[0].Segments[0].Arrival.IATACode)
+	arrivalAirport := GetAirport(flightOffer.Itineraries[0].Segments[len(flightOffer.Itineraries[0].Segments)-1].Arrival.IATACode)
 	
-	_, err = mydatabase.MyDB.Exec("INSERT INTO flights (id, price, stops, duration, seats, departure_location, arrival_location, one_way, itineraries) values( ?, ?, ?, ?, ?, ?, ?, ?, ?)", 
-			flightOffer.ID, 
-			flightOffer.Pricing.Total, 
-			flightOffer.Itineraries[0].Segments[0].NumberOfStops, 
-			flightOffer.Itineraries[0].Duration, 
-			flightOffer.NumberOfBookableSeats, 
-			departureAirport,
-			arrivalAirport,
-			flightOffer.OneWay,
-			itineraries)
+	_, err = mydatabase.MyDB.Exec("INSERT INTO flights (price, stops, duration, seats, departure_location, departure_date, arrival_location, return_date, one_way, itineraries) values( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", 
+		flightOffer.Pricing.Total, 
+		flightOffer.Itineraries[0].Segments[0].NumberOfStops, 
+		flightOffer.Itineraries[0].Duration, 
+		flightOffer.NumberOfBookableSeats, 
+		departureAirport, 
+		GetDepartureDate(),
+		arrivalAirport, 
+		GetReturnDate(),
+		flightOffer.OneWay, 
+		itineraries)
 
 	if err != nil {
 		log.Fatal("error inserting into flights: ", err)
@@ -171,7 +172,7 @@ func SaveData(flightOffer FlightOffer){
 
 func GetAirport(iataCode string) (int){
 	var airportID int
-	err := mydatabase.MyDB.QueryRow("SELECT id FROM airports WHERE code = ?", iataCode).Scan(&airportID)
+	err := mydatabase.MyDB.QueryRow("SELECT id FROM airports WHERE code = ? order by id desc", iataCode).Scan(&airportID)
 	if err != nil {
 		log.Fatal("error getting airport id: ", err)
 	}
