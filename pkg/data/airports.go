@@ -28,9 +28,11 @@ func GetAirportById(id int) string{
 	}
 	var name string
 	var code string
-	err = rows.Scan(&name, &code)
-	if err != nil {
-		panic(err.Error())
+	for rows.Next() {
+		err = rows.Scan(&id, &name, &code)
+		if err != nil {
+			panic(err.Error())
+		}
 	}
 	return code 
 
