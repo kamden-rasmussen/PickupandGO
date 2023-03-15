@@ -25,7 +25,7 @@ func main(){
 	}
 	log.SetOutput(file)
 
-	log.Panicln("Starting Server " + time.Now().Format("2006-01-02 15:04:05"))
+	log.Println("Starting Server " + time.Now().Format("2006-01-02 15:04:05"))
 
 	// load env variables
 	err = godotenv.Load(".env")
