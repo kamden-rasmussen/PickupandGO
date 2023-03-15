@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"time"
 
 	"github.com/Kamden-Rasmussen/PickupandGO/pkg/cron"
 	"github.com/Kamden-Rasmussen/PickupandGO/pkg/data"
@@ -24,6 +25,7 @@ func main(){
 	}
 	log.SetOutput(file)
 
+	log.Panicln("Starting Server " + time.Now().Format("2006-01-02 15:04:05"))
 
 	// load env variables
 	err = godotenv.Load(".env")
@@ -65,7 +67,7 @@ func main(){
 func startCron(db *sql.DB) {
 	cron := cron.NewCron()
 	log.Println("Starting Cron Jobs")
-	cron.AddFunc("@every 30m", allHealthChecks)
+	cron.AddFunc("0 0 * 30 * *", allHealthChecks)
 	cron.AddFunc("0 0 08 * * *", data.PrintLetsGo)
 	cron.AddFunc("0 0 08 * * *", data.ReoccuringTask)
 
