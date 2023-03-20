@@ -124,7 +124,6 @@ func SetUpAirportCodes() {
 			log.Fatal(err.Error())
 		}
 	}
-
 }
 
 func DbHealthCheck() error {
