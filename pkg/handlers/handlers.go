@@ -31,5 +31,8 @@ func InitializeHandlers() *mux.Router {
 	// calcs
 	router.HandleFunc("/api/v1/shallwecalc", ForceCalcs()).Methods("GET")
 
+	// email
+	router.HandleFunc("/api/v1/shallWeEmail/{email}", ForceEmail()).Methods("POST")
+
 	return router
 }
