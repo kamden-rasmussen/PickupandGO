@@ -3,6 +3,7 @@ package handlers
 import (
 	"net/http"
 
+	"github.com/Kamden-Rasmussen/PickupandGO/pkg/calcs"
 	"github.com/Kamden-Rasmussen/PickupandGO/pkg/data"
 )
 
@@ -17,5 +18,12 @@ func ForceSync() func(w http.ResponseWriter, r *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
 		data.ReoccuringTask()
+	}
+}
+
+func ForceCalcs() func(w http.ResponseWriter, r *http.Request) {
+	return func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		calcs.BeginCalc()
 	}
 }

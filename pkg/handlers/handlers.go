@@ -21,12 +21,15 @@ func InitializeHandlers() *mux.Router {
 	router := mux.NewRouter()
 	router.HandleFunc("/api/v1/healthcheck", GetHealthCheck()).Methods("GET")
 
+	// data
 	router.HandleFunc("/api/v1/initexampledata", GetDataEndpoint()).Methods("GET")
 	router.HandleFunc("/api/v1/" + pass, ForceSync()).Methods("GET") // destinations
 
 	// users
 	router.HandleFunc("/api/v1/users", AddUserHandler()).Methods("POST")
 
+	// calcs
+	router.HandleFunc("/api/v1/shallwecalc", ForceCalcs()).Methods("GET")
 
 	return router
 }
