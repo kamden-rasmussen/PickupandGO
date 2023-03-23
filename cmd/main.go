@@ -67,8 +67,7 @@ func main(){
 func startCron(db *sql.DB) {
 	cron := cron.NewCron()
 	log.Println("Starting Cron Jobs")
-	cron.AddFunc("0 0 * 30 * *", allHealthChecks)
-	cron.AddFunc("0 0 * 00 * *", allHealthChecks)
+	cron.AddFunc("* /30 * * * *", allHealthChecks)
 	cron.AddFunc("0 0 08 * * *", data.PrintLetsGo)
 	cron.AddFunc("0 0 08 * * *", data.ReoccuringTask)
 
