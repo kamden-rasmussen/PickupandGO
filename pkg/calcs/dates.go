@@ -4,6 +4,23 @@ import "time"
 
 // need to offset by 7 dats to get the correct date
 
+func GetDates() []string {
+	return []string{
+		GetToday(),
+		GetOneWeekAgo(),
+		GetTwoWeeksAgo(),
+		GetOneMonthAgo(),
+		GetThreeMonthsAgo(),
+		GetSixMonthsAgo(),
+		GetOneYearAgo(),
+	}
+}
+func GetToday() string {
+	t := time.Now()
+	today := t.AddDate(0, 0, 0).Format("2006-01-02")
+	return today
+}
+
 func GetOneWeekAgo() string {
 	t := time.Now()
 	OneWeekDate := t.AddDate(0, 0, 0).Format("2006-01-02")
