@@ -4,22 +4,15 @@ import (
 	"log"
 
 	"github.com/Kamden-Rasmussen/PickupandGO/pkg/data"
+	"github.com/Kamden-Rasmussen/PickupandGO/pkg/email"
 	"github.com/Kamden-Rasmussen/PickupandGO/pkg/mydatabase"
 )
 
-
-
 func BeginCalc(){
 	log.Print("Starting Calculations")
-	
-	oneWeek := GetOneWeekAgo()
-	twoWeeks := GetTwoWeeksAgo()
-	oneMonth := GetOneMonthAgo()
-	threeMonths := GetThreeMonthsAgo()
-	sixMonths := GetSixMonthsAgo()
-	oneYear := GetOneYearAgo()
-	log.Println(oneWeek, twoWeeks, oneMonth, threeMonths, sixMonths, oneYear)
-	
+
+	dates := GetDates()
+	log.Println(dates)
 
 	// get all users
 	users := data.GetAllUsers()
@@ -32,31 +25,49 @@ func BeginCalc(){
 		destinations := data.GetDestinationsForUser(user.Id)
 		for _, destination := range destinations {
 			log.Println(destination)
+
 			// get price for each destination
-			oneWeekPrice := GetPriceByDate(oneWeek, destination)
-			twoWeeksPrice := GetPriceByDate(twoWeeks, destination)
-			oneMonthPrice := GetPriceByDate(oneMonth, destination)
-			threeMonthsPrice := GetPriceByDate(threeMonths, destination)
-			sixMonthsPrice := GetPriceByDate(sixMonths, destination)
-			oneYearPrice := GetPriceByDate(oneYear, destination)
-			log.Println(oneWeekPrice, twoWeeksPrice, oneMonthPrice, threeMonthsPrice, sixMonthsPrice, oneYearPrice)
+			prices := GetPricesByDate(dates, destination)
+
+			if CheckAllPrices(prices) {
+				log.Println("Price is good")
+				email.SendEmail(user, prices, destination)
+			}
 			// TODO: start calcing
 		}
 	}
 }
 
-func GetPriceByDate(date string, destination int) float32 {
+func GetPricesByDate(dates []string, destination int) []float64 {
 	// get price for each destination
-	rows, err := mydatabase.MyDB.Query("SELECT * FROM flights WHERE departure_date = ? AND arrival_location = ? order by price asc limit 1", date, destination)
-	if err != nil {
-		panic(err.Error())
-	}
-	var price float32
-	for rows.Next() {
-		err = rows.Scan(&price)
+	var prices []float64
+	for _, date := range dates {
+
+		rows, err := mydatabase.MyDB.Query("SELECT * FROM flights WHERE departure_date = ? AND arrival_location = ? order by price asc limit 1", date, destination)
 		if err != nil {
 			panic(err.Error())
 		}
+		var price float64
+		for rows.Next() {
+			err = rows.Scan(&price)
+			if err != nil {
+				panic(err.Error())
+			}
+		}
+		prices = append(prices, price)
 	}
-	return price
+	return prices
+}
+
+func CheckPrice(currentPrice float64, checkingPrice float64) bool {
+	return currentPrice < ( checkingPrice * .75 )
+}
+
+func CheckAllPrices(prices []float64) bool {
+	for _, price := range prices {
+		if !CheckPrice(prices[0], price) {
+			return false
+		}
+	}
+	return true
 }
