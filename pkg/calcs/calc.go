@@ -71,3 +71,9 @@ func CheckAllPrices(prices []float64) bool {
 	}
 	return true
 }
+
+func CronBeginCalc() {
+	log.Println("Starting Calcs")
+	BeginCalc()
+	log.Println("Finished Calcs")
+}

@@ -8,6 +8,7 @@ import (
 	"os"
 	"time"
 
+	"github.com/Kamden-Rasmussen/PickupandGO/pkg/calcs"
 	"github.com/Kamden-Rasmussen/PickupandGO/pkg/cron"
 	"github.com/Kamden-Rasmussen/PickupandGO/pkg/data"
 	"github.com/Kamden-Rasmussen/PickupandGO/pkg/handlers"
@@ -70,6 +71,7 @@ func startCron(db *sql.DB) {
 	cron.AddFunc("* /30 * * * *", allHealthChecks)
 	cron.AddFunc("0 0 08 * * *", data.PrintLetsGo)
 	cron.AddFunc("0 0 08 * * *", data.ReoccuringTask)
+	cron.AddFunc("0 0 09 * * *", calcs.CronBeginCalc)
 
 	cron.Start()
 }

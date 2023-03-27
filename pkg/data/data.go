@@ -192,6 +192,7 @@ func GetReturnDate() (string){
 }
 
 func ReoccuringTask() {
+	log.Println("Starting Data Collection")
 	departureDate := GetDepartureDate()
 	returnDate := GetReturnDate()
 	users := GetAllUsers()
@@ -204,6 +205,6 @@ func ReoccuringTask() {
 			GetData(home, dest, departureDate, returnDate, "2", "DL", "USD")
 		}
 	}
-
+	log.Println("Data Collection Complete")
 
 }
