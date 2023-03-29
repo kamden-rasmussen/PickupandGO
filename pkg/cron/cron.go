@@ -1,11 +1,10 @@
 package cron
 
-import "gopkg.in/robfig/cron.v2"
+import "github.com/robfig/cron/v3"
 
 type Cron struct {
 	cronService *cron.Cron
 }
-
 
 func NewCron() *Cron{
 	cronService := cron.New()
