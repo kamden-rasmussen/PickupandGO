@@ -43,7 +43,7 @@ func GetPricesByDate(dates []string, destination int) []float64 {
 	var prices []float64
 	for _, date := range dates {
 
-		rows, err := mydatabase.MyDB.Query("SELECT * FROM flights WHERE departure_date = ? AND arrival_location = ? order by price asc limit 1", date, destination)
+		rows, err := mydatabase.MyDB.Query("SELECT price FROM flights WHERE departure_date = ? AND arrival_location = ? order by price asc limit 1", date, destination)
 		if err != nil {
 			panic(err.Error())
 		}
