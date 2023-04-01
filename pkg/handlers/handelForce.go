@@ -38,3 +38,13 @@ func ForceEmail() func(w http.ResponseWriter, r *http.Request) {
 		email.SendTestEmail(emailAddr, "Hello World")
 	}
 }
+
+func ForceCalcsWithEmail() func(w http.ResponseWriter, r *http.Request) {
+	return func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		// get email from url
+		calcs.ForceBool = true
+		calcs.BeginCalc()
+		calcs.ForceBool = false
+	}
+}

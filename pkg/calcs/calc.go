@@ -8,7 +8,9 @@ import (
 	"github.com/Kamden-Rasmussen/PickupandGO/pkg/mydatabase"
 )
 
-func BeginCalc(){
+var ForceBool = false
+
+func BeginCalc() {
 	log.Print("Starting Calculations")
 
 	dates := GetDates()
@@ -29,7 +31,10 @@ func BeginCalc(){
 			// get price for each destination
 			prices := GetPricesByDate(dates, destination)
 
-			if CheckAllPrices(prices) {
+			if ForceBool{
+				email.SendEmail(user, prices, destination)
+				continue
+			} else if CheckAllPrices(prices) {
 				log.Println("Price is good")
 				email.SendEmail(user, prices, destination)
 			}
