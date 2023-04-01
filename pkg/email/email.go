@@ -23,7 +23,8 @@ func SendEmail(user data.User, prices []float64, destination int) int{
 
 	// who
 	from := mail.NewEmail("Pick Up and GO", senderEmail)
-	subject := "Pickup and Go Alert - Price Drop for destination: " + "!" // TODO: add destination
+	subject := "Pickup and Go Alert - Price Drop for destination: " + destString + "!"
+	// FEATUER TODO: add readable name of airport
 	to := mail.NewEmail(user.FirstName + " " + user.LastName, user.Email)
 
 	// content
