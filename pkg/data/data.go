@@ -120,10 +120,13 @@ func GetExampleData() {
 
 	// print flights
 	log.Println(flightOffers)
+	lowestPrice := flightOffers.Data[0].Pricing.Total 
 	for _, flightOffer := range flightOffers.Data {
 		printable := flightOffer.ID
 		log.Println(printable)
-		SaveData(flightOffer)
+		if flightOffer.Pricing.Total < lowestPrice {
+			SaveData(flightOffer)
+		}
 	}
 }
 
@@ -133,9 +136,11 @@ func GetData(home string, destination string, departure_date string, return_date
 
 	// get flights
 	flightOffers := GetFlights(OAuth2.Token, home, destination, departure_date, return_date, passengers, airline_code, currency)
-
+	lowestPrice := flightOffers.Data[0].Pricing.Total
 	for _, flightOffer := range flightOffers.Data {
-		SaveData(flightOffer)
+		if flightOffer.Pricing.Total < lowestPrice {
+			SaveData(flightOffer)
+		}
 	}
 
 	return flightOffers
