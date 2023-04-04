@@ -137,12 +137,14 @@ func GetData(home string, destination string, departure_date string, return_date
 	// get flights
 	flightOffers := GetFlights(OAuth2.Token, home, destination, departure_date, return_date, passengers, airline_code, currency)
 	lowestPrice := flightOffers.Data[0].Pricing.Total
+	var LowestPricedFlight FlightOffer = flightOffers.Data[0]
 	for _, flightOffer := range flightOffers.Data {
 		if flightOffer.Pricing.Total < lowestPrice {
-			SaveData(flightOffer)
+			lowestPrice = flightOffer.Pricing.Total
+			LowestPricedFlight = flightOffer
 		}
 	}
-
+	SaveData(LowestPricedFlight)
 	return flightOffers
 }
 
