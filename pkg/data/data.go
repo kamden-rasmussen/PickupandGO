@@ -212,6 +212,23 @@ func ReoccuringTask() {
 			GetData(home, dest, departureDate, returnDate, "2", "DL", "USD")
 		}
 	}
-	log.Println("Data Collection Complete")
+	if CheckDataSaved() {
+		log.Println("Data Collection Complete")
+	} else {
+		log.Println("Data Collection Failed")
+	}
+}
 
+func CheckDataSaved() bool{
+	log.Println("Checking if data was saved")
+	var flightCount int
+	err := mydatabase.MyDB.QueryRow("SELECT count(*) FROM flights where departure_date = ?", GetDepartureDate()).Scan(&flightCount)
+	if err != nil {
+		log.Fatal("error checking if data was saved: ", err)
+	}
+	if flightCount > 0 {
+		return true
+	} else {
+		return false
+	}
 }
