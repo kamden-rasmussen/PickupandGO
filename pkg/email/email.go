@@ -95,7 +95,8 @@ func SetupEmail(user data.User, location string, departureDate string, returnDat
 	fourteenDay := prices[2]
 	thirtyDay := prices[3]
 	ninetyDay := prices[4]
-	oneYear := prices[5]
+	sixmonthsDay := prices[5]
+	oneYear := prices[6]
 
 	// body
 	body = "Hello " + user.FirstName + ",\n\n"
@@ -109,7 +110,8 @@ func SetupEmail(user data.User, location string, departureDate string, returnDat
 	body += dates[2] + ": " + strconv.FormatFloat(float64(fourteenDay), 'f', 2, 64) + "\n"
 	body += dates[3] + ": " + strconv.FormatFloat(float64(thirtyDay), 'f', 2, 64) + "\n"
 	body += dates[4] + ": " + strconv.FormatFloat(float64(ninetyDay), 'f', 2, 64) + "\n"
-	body += dates[5] + ": " + strconv.FormatFloat(float64(oneYear), 'f', 2, 64) + "\n\n"
+	body += dates[5] + ": " + strconv.FormatFloat(float64(sixmonthsDay), 'f', 2, 64) + "\n\n"
+	body += dates[6] + ": " + strconv.FormatFloat(float64(oneYear), 'f', 2, 64) + "\n\n"
 	
 
 	color := "green"
@@ -167,6 +169,15 @@ func SetupEmail(user data.User, location string, departureDate string, returnDat
 	html += "</tr>"
 	html += "<tr>"
 	html += "<td style=\"text-align: center\"> " + dates[5] + "</td>"
+	if currentPrice < oneYear {
+		color = "red"
+	} else {
+		color = "green"
+	}
+	html += "<td style=\"text-align: center\" style=\"color: " + color + "\">" + "$" + strconv.FormatFloat(float64(sixmonthsDay), 'f', 2, 64) + "</td>"
+	html += "</tr>"
+	html += "<tr>"
+	html += "<td style=\"text-align: center\"> " + dates[6] + "</td>"
 	if currentPrice < oneYear {
 		color = "red"
 	} else {
