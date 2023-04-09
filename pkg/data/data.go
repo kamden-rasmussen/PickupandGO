@@ -83,7 +83,9 @@ func GetAuth() (*AmadeusToken){
 
 	payload := strings.NewReader("client_id=" + os.Getenv("AMADEUS_CLIENT_ID") + "&client_secret=" + os.Getenv("AMADEUS_CLIENT_SECRET") + "&grant_type=client_credentials")
 
-	resp, err := http.Post("https://test.api.amadeus.com/v1/security/oauth2/token", "application/x-www-form-urlencoded", payload)
+	resp, err := http.Post(os.Getenv("AMADEUS_TEST_API") + "/v1/security/oauth2/token", "application/x-www-form-urlencoded", payload)
+	// resp, err := http.Post(os.Getenv("AMADEUS_API") + "/v1/security/oauth2/token", "application/x-www-form-urlencoded", payload)
+
 	if err != nil {
 		log.Fatal("error getting oauth token: ", err)
 	}
@@ -196,6 +198,12 @@ func GetReturnDate() (string){
 	t := time.Now()
 	returnDate := t.AddDate(0, 0, 14).Format("2006-01-02")
 	return returnDate
+}
+
+func GetReturnDateWithDate(date string) (string){
+	t, _ := time.Parse("2006-01-02", date)
+	departureDate := t.AddDate(0, 0, 7).Format("2006-01-02")
+	return departureDate
 }
 
 func ReoccuringTask() {

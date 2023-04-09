@@ -5,6 +5,7 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"os"
 )
 
 
@@ -32,7 +33,8 @@ func GetFlights(
 	var bearer = "Bearer " + bearerToken
 	log.Println(bearer)
 
-	url := "https://test.api.amadeus.com/v2/shopping/flight-offers" + params
+	url := os.Getenv("AMADEUS_TEST_API") + "/v2/shopping/flight-offers" + params
+	// url := os.Getenv("AMADEUS_API") + "/v2/shopping/flight-offers" + params
 
 	// Create a new request using http
 	req, err := http.NewRequest("GET", url, nil)

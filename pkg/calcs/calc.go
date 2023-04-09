@@ -29,7 +29,7 @@ func BeginCalc() {
 			log.Println(destination)
 
 			// get price for each destination
-			prices := GetPricesByDate(dates, destination)
+			prices := GetPricesByDate(user, dates, destination)
 
 			if ForceBool{
 				email.SendEmail(user, prices, destination, dates)
@@ -38,30 +38,42 @@ func BeginCalc() {
 				log.Println("Price is good")
 				email.SendEmail(user, prices, destination, dates)
 			}
-			// TODO: start calcing
 		}
 	}
 }
 
-func GetPricesByDate(dates []string, destination int) []float64 {
+func GetPricesByDate(user data.User, dates []string, destination int) []float64 {
 	// get price for each destination
 	var prices []float64
 	for _, date := range dates {
 
-		rows, err := mydatabase.MyDB.Query("SELECT price FROM flights WHERE departure_date = ? AND arrival_location = ? order by price asc limit 1", date, destination)
-		if err != nil {
-			panic(err.Error())
-		}
-		var price float64
-		for rows.Next() {
-			err = rows.Scan(&price)
-			if err != nil {
-				panic(err.Error())
-			}
-		}
+		price := GetPriceQuery(date, destination)
+
+		// if price == 0 {
+		// 	home := data.GetAirportById(user.Home)
+		// 	dest := data.GetAirportById(destination)
+		// 	log.Println("Getting Data for ", home, dest, date, data.GetReturnDateWithDate(date), "2", "DL", user.Currency, "USD")
+		// 	data.GetData(home, dest, date, data.GetReturnDateWithDate(date), "2", "DL", user.Currency)
+		// 	price = GetPriceQuery(date, destination)
+		// }
 		prices = append(prices, price)
 	}
 	return prices
+}
+
+func GetPriceQuery(date string, destination int) float64 {
+	rows, err := mydatabase.MyDB.Query("SELECT price FROM flights WHERE departure_date = ? AND arrival_location = ? order by price asc limit 1", date, destination)
+	if err != nil {
+		panic(err.Error())
+	}
+	var price float64
+	for rows.Next() {
+		err = rows.Scan(&price)
+		if err != nil {
+			panic(err.Error())
+		}
+	}
+	return price
 }
 
 func CheckPrice(currentPrice float64, checkingPrice float64) bool {
