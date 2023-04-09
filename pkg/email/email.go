@@ -11,7 +11,7 @@ import (
 	"github.com/sendgrid/sendgrid-go/helpers/mail"
 )
 
-func SendEmail(user data.User, prices []float64, destination int) int{
+func SendEmail(user data.User, prices []float64, destination int, dates []string) int{
 	err := godotenv.Load(".env")
 	if err != nil {
 		log.Fatalf("Failed to load env. Err: %s", err)
@@ -28,7 +28,7 @@ func SendEmail(user data.User, prices []float64, destination int) int{
 	to := mail.NewEmail(user.FirstName + " " + user.LastName, user.Email)
 
 	// content
-	plainTextContent, htmlContent := SetupEmail(user, destString, data.GetDepartureDate(), data.GetReturnDate(), prices)
+	plainTextContent, htmlContent := SetupEmail(user, destString, data.GetDepartureDate(), data.GetReturnDate(), prices, dates)
 
 	// setup
 	message := mail.NewSingleEmail(from, subject, to, plainTextContent, htmlContent)
@@ -47,7 +47,7 @@ func SendEmail(user data.User, prices []float64, destination int) int{
 	return response.StatusCode
 }
 
-func SendTestEmail(email string, body string) string{
+func SendTestEmail(email string, body string, dates []string) string{
 	err := godotenv.Load(".env")
 	if err != nil {
 		log.Fatalf("Failed to load env. Err: %s", err)
@@ -69,7 +69,7 @@ func SendTestEmail(email string, body string) string{
 	prices := []float64{100.00, 200.00, 300.00, 50.00, 400.00, 500.00}
 
 	// content
-	plainTextContent, htmlContent := SetupEmail(testUser, "Party Place", "2020-01-01", "2020-01-01", prices)
+	plainTextContent, htmlContent := SetupEmail(testUser, "Party Place", "2020-01-01", "2020-01-01", prices, dates)
 
 	// setup
 	message := mail.NewSingleEmail(from, subject, to, plainTextContent, htmlContent)
@@ -88,7 +88,7 @@ func SendTestEmail(email string, body string) string{
 	return "Email Sent Successfully to " + email + ""
 }
 
-func SetupEmail(user data.User, location string, departureDate string, returnDate string, prices []float64) (body string, html string) {
+func SetupEmail(user data.User, location string, departureDate string, returnDate string, prices []float64, dates []string) (body string, html string) {
 
 	currentPrice := prices[0]
 	sevenDay := prices[1]
@@ -101,25 +101,22 @@ func SetupEmail(user data.User, location string, departureDate string, returnDat
 	body = "Hello " + user.FirstName + ",\n\n"
 	body += "A Flight you are tracking to " + location + " has had a signifigant price drop!\n\n"
 	body += "The flight details are as follows \n"
-	body += "Departure Date: " + departureDate + "\n"
-	body += "Return Date: " + returnDate + "\n"
+	body += "Departure Date: " + departureDate + "Return Date: " + returnDate + "\n"
 	body += "Current Price: " + strconv.FormatFloat(float64(currentPrice), 'f', 2, 64) + "\n\n"
 	body += "Price History \n"
 	body += "Todays Price: " + strconv.FormatFloat(float64(currentPrice), 'f', 2, 64) + "\n"
-	body += "7 Days: " + strconv.FormatFloat(float64(sevenDay), 'f', 2, 64) + "\n"
-	body += "14 Days: " + strconv.FormatFloat(float64(fourteenDay), 'f', 2, 64) + "\n"
-	body += "30 Days: " + strconv.FormatFloat(float64(thirtyDay), 'f', 2, 64) + "\n"
-	body += "90 Days: " + strconv.FormatFloat(float64(ninetyDay), 'f', 2, 64) + "\n"
-	body += "1 Year: " + strconv.FormatFloat(float64(oneYear), 'f', 2, 64) + "\n"
-
+	body += dates[1] + ": " + strconv.FormatFloat(float64(sevenDay), 'f', 2, 64) + "\n"
+	body += dates[2] + ": " + strconv.FormatFloat(float64(fourteenDay), 'f', 2, 64) + "\n"
+	body += dates[3] + ": " + strconv.FormatFloat(float64(thirtyDay), 'f', 2, 64) + "\n"
+	body += dates[4] + ": " + strconv.FormatFloat(float64(ninetyDay), 'f', 2, 64) + "\n"
+	body += dates[5] + ": " + strconv.FormatFloat(float64(oneYear), 'f', 2, 64) + "\n\n"
+	
 
 	color := "green"
 	// html
 	html = "<h1>Hello " + user.FirstName + ",</h1>"
 	html += "<p>A Flight you are tracking to " + location + " has had a signifigant price drop!</p>"
-	html += "<p> Details of the flight are as follows </p>"
-	html += "<p>Departure Date: " + departureDate + "</p>"
-	html += "<p>Return Date: " + returnDate + "</p>"
+	html += "<p>Departure Date: " + departureDate + " Return Date: " + returnDate + "</p>"
 	html += "<p>Current Price: " + "$" + strconv.FormatFloat(float64(currentPrice), 'f', 2, 64) + "</p>"
 	html += "<p>The flight History is as follows :</p>"
 	// table of price checks
@@ -133,7 +130,7 @@ func SetupEmail(user data.User, location string, departureDate string, returnDat
 	html += "<td style=\"text-align: center\" style=\"color: " + color + "\">" + "$" + strconv.FormatFloat(float64(currentPrice), 'f', 2, 64) + "</td>"
 	html += "</tr>"
 	html += "<tr>"
-	html += "<td style=\"text-align: center\">7 Days</td>"
+	html += "<td style=\"text-align: center\"> " + dates[1] + "</td>"
 	if currentPrice < sevenDay {
 		color = "red"
 	} else {
@@ -142,7 +139,7 @@ func SetupEmail(user data.User, location string, departureDate string, returnDat
 	html += "<td style=\"text-align: center\" style=\"color: " + color + "\">" + "$" + strconv.FormatFloat(float64(sevenDay), 'f', 2, 64) + "</td>"
 	html += "</tr>"
 	html += "<tr>"
-	html += "<td style=\"text-align: center\">14 Days</td>"
+	html += "<td style=\"text-align: center\"> " + dates[2] + "</td>"
 	if currentPrice < fourteenDay {
 		color = "red"
 	} else {
@@ -151,7 +148,7 @@ func SetupEmail(user data.User, location string, departureDate string, returnDat
 	html += "<td style=\"text-align: center\" style=\"color: " + color + "\">" + "$" + strconv.FormatFloat(float64(fourteenDay), 'f', 2, 64) + "</td>"
 	html += "</tr>"
 	html += "<tr>"
-	html += "<td style=\"text-align: center\">30 Days</td>"
+	html += "<td style=\"text-align: center\"> " + dates[3] + "</td>"
 	if currentPrice < thirtyDay {
 		color = "red"
 	} else {
@@ -160,7 +157,7 @@ func SetupEmail(user data.User, location string, departureDate string, returnDat
 	html += "<td style=\"text-align: center\" style=\"color: " + color + "\">" + "$" + strconv.FormatFloat(float64(thirtyDay), 'f', 2, 64) + "</td>"
 	html += "</tr>"
 	html += "<tr>"
-	html += "<td style=\"text-align: center\">90 Days</td>"
+	html += "<td style=\"text-align: center\"> " + dates[4] + "</td>"
 	if currentPrice < ninetyDay {
 		color = "red"
 	} else {
@@ -169,7 +166,7 @@ func SetupEmail(user data.User, location string, departureDate string, returnDat
 	html += "<td style=\"text-align: center\" style=\"color: " + color + "\">" + "$" + strconv.FormatFloat(float64(ninetyDay), 'f', 2, 64) + "</td>"
 	html += "</tr>"
 	html += "<tr>"
-	html += "<td style=\"text-align: center\">1 Year</td>"
+	html += "<td style=\"text-align: center\"> " + dates[5] + "</td>"
 	if currentPrice < oneYear {
 		color = "red"
 	} else {

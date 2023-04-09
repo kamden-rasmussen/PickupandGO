@@ -32,11 +32,11 @@ func BeginCalc() {
 			prices := GetPricesByDate(dates, destination)
 
 			if ForceBool{
-				email.SendEmail(user, prices, destination)
+				email.SendEmail(user, prices, destination, dates)
 				continue
 			} else if CheckAllPrices(prices) {
 				log.Println("Price is good")
-				email.SendEmail(user, prices, destination)
+				email.SendEmail(user, prices, destination, dates)
 			}
 			// TODO: start calcing
 		}

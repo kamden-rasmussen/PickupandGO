@@ -35,7 +35,8 @@ func ForceEmail() func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
 		// get email from url
 		emailAddr := mux.Vars(r)["email"]
-		email.SendTestEmail(emailAddr, "Hello World")
+		dates := calcs.GetDates()
+		email.SendTestEmail(emailAddr, "Hello World", dates)
 	}
 }
 
