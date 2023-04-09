@@ -66,7 +66,7 @@ func SendTestEmail(email string, body string, dates []string) string{
 		Email: email,
 	}
 
-	prices := []float64{100.00, 200.00, 300.00, 50.00, 400.00, 500.00}
+	prices := []float64{100.00, 200.00, 300.00, 50.00, 400.00, 500.00, 250.00}
 
 	// content
 	plainTextContent, htmlContent := SetupEmail(testUser, "Party Place", "2020-01-01", "2020-01-01", prices, dates)
