@@ -15,7 +15,7 @@ The application takes data from the user including their name, email, home airpo
         -   github.com/gorilla/mux
     -   Hosted on a Droplet
 -   MySQL
-    -   Hosted on Digital Ocean
+    -   Hosted on Digital Ocean - Database Cluster
     -   6 tables with interdependencies - Foreign key relations
 -   Amadeus Flight API
     -   Specifically: `/v2/shopping/flight-offers`
