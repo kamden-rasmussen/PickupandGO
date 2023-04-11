@@ -57,7 +57,7 @@ func SendTestEmail(email string, body string, dates []string) string{
 
 	// who
 	from := mail.NewEmail("Pick Up and GO", senderEmail)
-	subject := "Test Email from Pickup and Go"
+	subject := "Pickup and Go Alert - Price Drop for destination: TEST"
 	to := mail.NewEmail("TestUser", email)
 
 	testUser := data.User{
