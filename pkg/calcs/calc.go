@@ -64,13 +64,13 @@ func GetPricesByDate(user data.User, dates []string, destination int) []float64 
 func GetPriceQuery(date string, destination int) float64 {
 	rows, err := mydatabase.MyDB.Query("SELECT price FROM flights WHERE departure_date = ? AND arrival_location = ? order by price asc limit 1", date, destination)
 	if err != nil {
-		panic(err.Error())
+		log.Fatal("error getting price: ", err)
 	}
 	var price float64
 	for rows.Next() {
 		err = rows.Scan(&price)
 		if err != nil {
-			panic(err.Error())
+			log.Fatal("error scanning price: ", err)
 		}
 	}
 	return price

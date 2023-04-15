@@ -211,6 +211,7 @@ func ReoccuringTask() {
 	departureDate := GetDepartureDate()
 	returnDate := GetReturnDate()
 	users := GetAllUsers()
+	log.Println("finished getting users: ")
 
 	for _, user := range users {
 		destinations := GetDestinationsForUser(user.Id)
